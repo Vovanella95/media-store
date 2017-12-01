@@ -5,6 +5,8 @@ using Windows.UI.Xaml.Controls;
 using Caliburn.Micro;
 using MediaStore.Win10.ViewModels;
 using MediaStore.Win10.Views;
+using MediaStore.Infrastructure.Interfaces;
+using MediaStore.Services;
 
 namespace MediaStore.Win10
 {
@@ -24,7 +26,9 @@ namespace MediaStore.Win10
 
 			container.RegisterWinRTServices();
 
-			container.PerRequest<StartViewModel>();
+			container.Singleton<ILayoutService, LayoutService>();
+
+			container.PerRequest<FeedsViewModel>();
 		}
 
 		protected override void PrepareViewFirst(Frame rootFrame)
@@ -37,7 +41,7 @@ namespace MediaStore.Win10
 			if (args.PreviousExecutionState == ApplicationExecutionState.Running)
 				return;
 
-			DisplayRootView<StartView>();
+			DisplayRootView<FeedsView>();
 		}
 
 		protected override object GetInstance(Type service, string key)

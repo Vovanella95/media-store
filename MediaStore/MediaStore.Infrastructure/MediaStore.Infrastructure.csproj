@@ -114,6 +114,8 @@
     <Compile Include="Feeds\VideoCollectionFeedModel.cs" />
     <Compile Include="Feeds\WideCardsFeedModel.cs" />
     <Compile Include="Interfaces\ILayoutService.cs" />
+    <Compile Include="Items\WideCard\WideCardActorModel.cs" />
+    <Compile Include="Items\WideCard\WideCardModelBase.cs" />
     <Compile Include="Layout\FeedsLayoutModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\MediaStore.Infrastructure.rd.xml" />
