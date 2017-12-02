@@ -34,7 +34,7 @@
                  VerticalAlignment="Top"
                  Grid.Row="1">
             <Ellipse.Fill>
-                <ImageBrush ImageSource="{x:Bind ViewModel.ActorImageUrl}"/>
+                <ImageBrush ImageSource="{x:Bind ViewModel.ActorImageUrl, Mode=OneWay}"/>
             </Ellipse.Fill>
         </Ellipse>
         <StackPanel Grid.Row="0"

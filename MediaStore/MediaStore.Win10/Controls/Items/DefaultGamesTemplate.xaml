@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="MediaStore.Win10.Controls.Items.DefaultGamesTemplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:MediaStore.Win10.Controls.Items"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             PointerEntered="OnDefaultGamesPointerEntered"
+             PointerExited="OnDefaultGamesPointerExited"
+             d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <Storyboard x:Name="PointerEnteredStoryboard">
+            <DoubleAnimation To="1.1"
+                             Duration="00:00:0.2" 
+                             Storyboard.TargetName="ImageTransform" 
+                             Storyboard.TargetProperty="ScaleX">
+            </DoubleAnimation>
+            <DoubleAnimation To="1.1"
+                             Duration="00:00:0.2" 
+                             Storyboard.TargetName="ImageTransform" 
+                             Storyboard.TargetProperty="ScaleY">
+            </DoubleAnimation>
+        </Storyboard>
+        <Storyboard x:Name="PointerExitedStoryboard">
+            <DoubleAnimation To="1"
+                             Duration="00:00:0.2" 
+                             Storyboard.TargetName="ImageTransform" 
+                             Storyboard.TargetProperty="ScaleX">
+            </DoubleAnimation>
+            <DoubleAnimation To="1"
+                             Duration="00:00:0.2" 
+                             Storyboard.TargetName="ImageTransform" 
+                             Storyboard.TargetProperty="ScaleY">
+            </DoubleAnimation>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid Width="140"
+          Height="240"
+          Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="190"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Image Source="{x:Bind ViewModel.PosterUrl, Mode=OneWay}"
+                   Width="160"
+                   Height="190"
+                   Stretch="UniformToFill">
+                <Image.RenderTransform>
+                    <CompositeTransform x:Name="ImageTransform"
+                                    CenterX="80"
+                                    CenterY="95"/>
+                </Image.RenderTransform>
+            </Image>
+            <Grid.Clip>
+                <RectangleGeometry Rect="0,0,160,190" />
+            </Grid.Clip>
+        </Grid>
+        
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}"
+                       TextWrapping="NoWrap"
+                       TextTrimming="CharacterEllipsis"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

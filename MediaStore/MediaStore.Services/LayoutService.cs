@@ -4,6 +4,8 @@ using MediaStore.Infrastructure.Layout;
 using MediaStore.Infrastructure.Categories;
 using MediaStore.Infrastructure.Feeds;
 using MediaStore.Infrastructure.Items.WideCard;
+using MediaStore.Infrastructure.Items;
+using MediaStore.Infrastructure.Items.Games;
 
 namespace MediaStore.Services
 {
@@ -18,11 +20,11 @@ namespace MediaStore.Services
 				{
 					new LayoutCategoryModel
 					{
-						Feeds = new[]
+						Feeds = new LayoutFeedModelBase[]
 						{
 							new WideCardsFeedModel
 							{
-								Items = new[]
+								Items = new WideCardModelBase[]
 								{
 									new WideCardActorModel
 									{
@@ -33,14 +35,14 @@ namespace MediaStore.Services
 										Id = "12",
 										ActorImageUrl ="https://pp.userapi.com/c841133/v841133876/3e651/ZLRvkRVO6Og.jpg"
 									},
-									new WideCardActorModel
+									new WideCardGameModel
 									{
-										ActorName = "Jonh Reese",
-										ActorEmail = "reese-john@gmail.de",
-										BackgroundUrl = "https://s3.envato.com/files/212542380/Dark%20Background%20%20%20%2001_preview1%20.JPG",
+										GameTitle = "Need for Speed: Payback",
+										Genre = "2017, Racing",
+										BackgroundUrl = "https://i.ytimg.com/vi/Y_MB6fVg7H4/maxresdefault.jpg",
 										Content = "Some text for demonstrating this item. So I am Vovanella and I am an Assassin",
 										Id = "12",
-										ActorImageUrl ="https://pp.userapi.com/c639327/v639327843/5b527/hBmZ3-USy4U.jpg"
+										GamePosterUrl ="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/06/nfsde-pc-generic.jpg"
 									},
 									new WideCardActorModel
 									{
@@ -50,6 +52,27 @@ namespace MediaStore.Services
 										Content = "Some text for demonstrating this item. So I am Vovanella and I am an Assassin",
 										Id = "12",
 										ActorImageUrl ="https://pp.userapi.com/c840239/v840239808/42e3d/RzVo58VgUtE.jpg"
+									}
+								}
+							},
+							new GamesFeedModel
+							{
+								Items = new GamesModelBase[]
+								{
+									new DefaultGamesModel
+									{
+										Title = "Assassin's creed: Origins",
+										PosterUrl = "https://nextgame.net/upload/iblock/093/Assassins-Creed-Origins-Rus-Game-For-PC_detail.jpg"
+									},
+									new DefaultGamesModel
+									{
+										Title = "Assassin's creed: Origins",
+										PosterUrl = "https://cdn.europosters.eu/image/1300/28402.jpg"
+									},
+									new DefaultGamesModel
+									{
+										Title = "Assassin's creed: Origins",
+										PosterUrl = "https://images-na.ssl-images-amazon.com/images/I/31NomOK5eiL.jpg"
 									}
 								}
 							}

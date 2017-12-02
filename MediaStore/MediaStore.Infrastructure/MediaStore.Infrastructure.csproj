@@ -114,7 +114,11 @@
     <Compile Include="Feeds\VideoCollectionFeedModel.cs" />
     <Compile Include="Feeds\WideCardsFeedModel.cs" />
     <Compile Include="Interfaces\ILayoutService.cs" />
+    <Compile Include="Items\Games\DefaultGamesModel.cs" />
+    <Compile Include="Items\Games\GamePlatform.cs" />
+    <Compile Include="Items\Games\GamesModelBase.cs" />
     <Compile Include="Items\WideCard\WideCardActorModel.cs" />
+    <Compile Include="Items\WideCard\WideCardGameModel.cs" />
     <Compile Include="Items\WideCard\WideCardModelBase.cs" />
     <Compile Include="Layout\FeedsLayoutModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
