@@ -37,31 +37,37 @@
         </Storyboard>
     </UserControl.Resources>
 
-    <Grid Width="140"
-          Height="240"
-          Background="Gray">
+    <Grid Width="136"
+          Height="268">
         <Grid.RowDefinitions>
-            <RowDefinition Height="190"/>
+            <RowDefinition Height="194"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid>
             <Image Source="{x:Bind ViewModel.PosterUrl, Mode=OneWay}"
-                   Width="160"
-                   Height="190"
-                   Stretch="UniformToFill">
+                   Width="136"
+                   Height="194"
+                   Stretch="Fill">
                 <Image.RenderTransform>
                     <CompositeTransform x:Name="ImageTransform"
-                                    CenterX="80"
-                                    CenterY="95"/>
+                                    CenterX="68"
+                                    CenterY="97"/>
                 </Image.RenderTransform>
             </Image>
             <Grid.Clip>
-                <RectangleGeometry Rect="0,0,160,190" />
+                <RectangleGeometry Rect="0,0,136,190" />
             </Grid.Clip>
         </Grid>
         
         <StackPanel Grid.Row="1">
             <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}"
+                       FontSize="14"
+                       TextWrapping="Wrap"
+                       MaxLines="2"
+                       TextTrimming="CharacterEllipsis"/>
+            <TextBlock Text="{x:Bind ViewModel.ReleaseDate.Date, Mode=OneWay}"
+                       FontSize="12"
+                       Foreground="DarkSlateGray"
                        TextWrapping="NoWrap"
                        TextTrimming="CharacterEllipsis"/>
         </StackPanel>

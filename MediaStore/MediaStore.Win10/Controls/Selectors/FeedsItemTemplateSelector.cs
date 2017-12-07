@@ -8,6 +8,7 @@ namespace MediaStore.Win10.Controls.Selectors
 	{
 		public DataTemplate WideCardsFeedTemplate { get; set; }
 		public DataTemplate GamesFeedTemplate { get; set; }
+		public DataTemplate TopSpotFeedTemplate { get; set; }
 
 		protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
 		{
@@ -19,6 +20,11 @@ namespace MediaStore.Win10.Controls.Selectors
 			if (item is GamesFeedModel)
 			{
 				return GamesFeedTemplate;
+			}
+
+			if(item is TopSpotFeedModel)
+			{
+				return TopSpotFeedTemplate;
 			}
 
 			return null;

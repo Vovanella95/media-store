@@ -10,5 +10,6 @@ namespace MediaStore.Infrastructure.Items.Games
 		public DateTime ReleaseDate { get; set; }
 		public string PosterUrl { get; set; }
 		public GamePlatform[] Platforms { get; set; }
+		public int Rating { get; set; }
 	}
 }

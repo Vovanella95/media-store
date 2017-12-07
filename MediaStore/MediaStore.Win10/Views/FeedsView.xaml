@@ -6,6 +6,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:selectors="using:MediaStore.Win10.Controls.Selectors"
       xmlns:feeds="using:MediaStore.Win10.Controls.Feeds"
+      x:Name="RootElement"
       mc:Ignorable="d">
 
     <Page.Background>
@@ -20,8 +21,12 @@
         <DataTemplate x:Key="GamesFeedTemplate">
             <feeds:GamesFeedTemplate />
         </DataTemplate>
+        <DataTemplate x:Key="TopSpotFeedTemplate">
+            <feeds:TopSpotFeedTemplate />
+        </DataTemplate>
         <selectors:FeedsItemTemplateSelector x:Key="FeedsItemTemplateSelector"
                                              WideCardsFeedTemplate="{StaticResource WideCardsFeedTemplate}"
+                                             TopSpotFeedTemplate="{StaticResource TopSpotFeedTemplate}"
                                              GamesFeedTemplate="{StaticResource GamesFeedTemplate}"/>
     </Page.Resources>
 
@@ -30,10 +35,14 @@
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1">
-            <ItemsControl ItemTemplateSelector="{StaticResource FeedsItemTemplateSelector}"
-                          ItemsSource="{x:Bind ViewModel.Feeds, Mode=OneWay}"
-                          Margin="60"/>
+        <Grid Grid.Column="1"
+              Background="#EAEAEA">
+            <ScrollViewer x:Name="RootScrollViewer"
+                          VerticalScrollBarVisibility="Hidden"
+                          VerticalScrollMode="Auto">
+                <ItemsControl ItemTemplateSelector="{StaticResource FeedsItemTemplateSelector}"
+                              ItemsSource="{x:Bind ViewModel.Feeds, Mode=OneWay}"/>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>

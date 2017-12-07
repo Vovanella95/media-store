@@ -8,6 +8,8 @@
              xmlns:selectors="using:MediaStore.Win10.Controls.Selectors"
              mc:Ignorable="d"
              d:DesignHeight="300"
+             Margin="16,0,16,0"
+             MaxWidth="1280"
              d:DesignWidth="400">
     <UserControl.Resources>
         <DataTemplate x:Key="WideCardActorTemplate">
@@ -22,9 +24,17 @@
                                                 WideCardGameTemplate="{StaticResource WideCardGameTemplate}"/>
     </UserControl.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{x:Bind ViewModel.Title}"
+                   Margin="0,4,0,4"
+                   FontSize="14"/>
         <ListView ItemTemplateSelector="{StaticResource WideCardTemplateSelector}"
                   ItemContainerStyle="{StaticResource ListViewItemBaseStyle}"
-                      ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}">
+                  Grid.Row="1"
+                  ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <ItemsStackPanel Orientation="Horizontal"/>

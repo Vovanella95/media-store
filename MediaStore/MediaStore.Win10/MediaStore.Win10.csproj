@@ -98,11 +98,17 @@
     <Compile Include="Controls\Feeds\GamesFeedTemplate.xaml.cs">
       <DependentUpon>GamesFeedTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Feeds\TopSpotFeedTemplate.xaml.cs">
+      <DependentUpon>TopSpotFeedTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Feeds\WideCardsFeedTemplate.xaml.cs">
       <DependentUpon>WideCardsFeedTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Items\DefaultGamesTemplate.xaml.cs">
       <DependentUpon>DefaultGamesTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Items\TopSpotGameTemplate.xaml.cs">
+      <DependentUpon>TopSpotGameTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Items\WideCardActorTemplate.xaml.cs">
       <DependentUpon>WideCardActorTemplate.xaml</DependentUpon>
@@ -112,6 +118,7 @@
     </Compile>
     <Compile Include="Controls\Selectors\FeedsItemTemplateSelector.cs" />
     <Compile Include="Controls\Selectors\GamesItemTemplateSelector.cs" />
+    <Compile Include="Controls\Selectors\TopSpotTemplateSelector.cs" />
     <Compile Include="Controls\Selectors\WideCardItemTemplateSelector.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -152,11 +159,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Feeds\TopSpotFeedTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Feeds\WideCardsFeedTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Items\DefaultGamesTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Items\TopSpotGameTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
