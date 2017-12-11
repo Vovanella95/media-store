@@ -1,4 +1,4 @@
-﻿using MediaStore.Infrastructure.Items.Games;
+﻿using MediaStore.Infrastructure.Items.Media;
 
 namespace MediaStore.Infrastructure.Items.TopSpot
 {

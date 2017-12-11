@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MediaStore.Infrastructure.Items.Games
+namespace MediaStore.Infrastructure.Items.Media
 {
 	public enum GamePlatform
 	{

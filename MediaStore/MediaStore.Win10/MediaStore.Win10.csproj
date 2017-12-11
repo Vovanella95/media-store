@@ -95,8 +95,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Custom\RatingControl.xaml.cs">
+      <DependentUpon>RatingControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Custom\SwimmingLane.xaml.cs">
       <DependentUpon>SwimmingLane.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Feeds\CollectionFeedTemplate.xaml.cs">
+      <DependentUpon>CollectionFeedTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Feeds\GamesFeedTemplate.xaml.cs">
       <DependentUpon>GamesFeedTemplate.xaml</DependentUpon>
@@ -104,14 +110,26 @@
     <Compile Include="Controls\Feeds\TopSpotFeedTemplate.xaml.cs">
       <DependentUpon>TopSpotFeedTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Feeds\VideosFeedTemplate.xaml.cs">
+      <DependentUpon>VideosFeedTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Feeds\WideCardsFeedTemplate.xaml.cs">
       <DependentUpon>WideCardsFeedTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Items\CollectionDefaultGameTemplate.xaml.cs">
+      <DependentUpon>CollectionDefaultGameTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Items\DefaultGamesTemplate.xaml.cs">
       <DependentUpon>DefaultGamesTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Items\DefaultSeriesTemplate.xaml.cs">
+      <DependentUpon>DefaultSeriesTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Items\TopSpotGameTemplate.xaml.cs">
       <DependentUpon>TopSpotGameTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Items\DefaultVideoTemplate.xaml.cs">
+      <DependentUpon>DefaultVideoTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Items\WideCardActorTemplate.xaml.cs">
       <DependentUpon>WideCardActorTemplate.xaml</DependentUpon>
@@ -122,7 +140,9 @@
     <Compile Include="Controls\Selectors\FeedsItemTemplateSelector.cs" />
     <Compile Include="Controls\Selectors\GamesItemTemplateSelector.cs" />
     <Compile Include="Controls\Selectors\TopSpotTemplateSelector.cs" />
+    <Compile Include="Controls\Selectors\VideoItemTemplateSelector.cs" />
     <Compile Include="Controls\Selectors\WideCardItemTemplateSelector.cs" />
+    <Compile Include="Converters\GenresConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -158,7 +178,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\Custom\RatingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Custom\SwimmingLane.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Feeds\CollectionFeedTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,7 +198,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Feeds\VideosFeedTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Feeds\WideCardsFeedTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Items\CollectionDefaultGameTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,7 +214,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Items\DefaultSeriesTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Items\TopSpotGameTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Items\DefaultVideoTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,6 +239,11 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Styles\Controls.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\Converters.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

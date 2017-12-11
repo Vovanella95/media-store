@@ -9,10 +9,12 @@ namespace MediaStore.Win10.Controls.Selectors
 		public DataTemplate WideCardsFeedTemplate { get; set; }
 		public DataTemplate GamesFeedTemplate { get; set; }
 		public DataTemplate TopSpotFeedTemplate { get; set; }
+		public DataTemplate CollectionFeedTemplate { get; set; }
+		public DataTemplate VideoFeedTemplate { get; set; }
 
 		protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
 		{
-			if(item is WideCardsFeedModel)
+			if (item is WideCardsFeedModel)
 			{
 				return WideCardsFeedTemplate;
 			}
@@ -22,9 +24,19 @@ namespace MediaStore.Win10.Controls.Selectors
 				return GamesFeedTemplate;
 			}
 
-			if(item is TopSpotFeedModel)
+			if (item is TopSpotFeedModel)
 			{
 				return TopSpotFeedTemplate;
+			}
+
+			if (item is CollectionFeedModel)
+			{
+				return CollectionFeedTemplate;
+			}
+
+			if(item is VideoCollectionFeedModel)
+			{
+				return VideoFeedTemplate;
 			}
 
 			return null;

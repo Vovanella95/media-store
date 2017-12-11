@@ -24,9 +24,17 @@
         <DataTemplate x:Key="TopSpotFeedTemplate">
             <feeds:TopSpotFeedTemplate />
         </DataTemplate>
+        <DataTemplate x:Key="CollectionFeedTemplate">
+            <feeds:CollectionFeedTemplate />
+        </DataTemplate>
+        <DataTemplate x:Key="VideoFeedTemplate">
+            <feeds:VideosFeedTemplate />
+        </DataTemplate>
         <selectors:FeedsItemTemplateSelector x:Key="FeedsItemTemplateSelector"
+                                             VideoFeedTemplate="{StaticResource VideoFeedTemplate}"
                                              WideCardsFeedTemplate="{StaticResource WideCardsFeedTemplate}"
                                              TopSpotFeedTemplate="{StaticResource TopSpotFeedTemplate}"
+                                             CollectionFeedTemplate="{StaticResource CollectionFeedTemplate}"
                                              GamesFeedTemplate="{StaticResource GamesFeedTemplate}"/>
     </Page.Resources>
 

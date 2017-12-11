@@ -1,15 +1,13 @@
-﻿<UserControl x:Class="MediaStore.Win10.Controls.Items.DefaultGamesTemplate"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="using:MediaStore.Win10.Controls.Items"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="using:MediaStore.Win10.Controls.Custom"
-             mc:Ignorable="d"
-             d:DesignHeight="300"
-             PointerEntered="OnDefaultGamesPointerEntered"
-             PointerExited="OnDefaultGamesPointerExited"
-             d:DesignWidth="400">
+﻿<UserControl
+    x:Class="MediaStore.Win10.Controls.Items.DefaultSeriesTemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MediaStore.Win10.Controls.Items"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
 
     <UserControl.Resources>
         <Storyboard x:Name="PointerEnteredStoryboard">
@@ -39,7 +37,7 @@
     </UserControl.Resources>
 
     <Grid Width="136"
-          Height="280">
+          Height="268">
         <Grid.RowDefinitions>
             <RowDefinition Height="194"/>
             <RowDefinition Height="50"/>
@@ -51,8 +49,8 @@
                    Stretch="Fill">
                 <Image.RenderTransform>
                     <CompositeTransform x:Name="ImageTransform"
-                                    CenterX="68"
-                                    CenterY="97"/>
+                                        CenterX="68"
+                                        CenterY="97"/>
                 </Image.RenderTransform>
             </Image>
             <Grid.Clip>
@@ -60,29 +58,18 @@
             </Grid.Clip>
         </Grid>
 
-        <StackPanel Grid.Row="1"
-                    HorizontalAlignment="Stretch">
+        <StackPanel Grid.Row="1">
             <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}"
                        FontSize="14"
                        TextWrapping="Wrap"
-                       HorizontalAlignment="Stretch"
                        MaxLines="2"
                        TextTrimming="CharacterEllipsis"/>
-            <TextBlock Text="{x:Bind ViewModel.Genres, Converter={StaticResource GenresConverter}, Mode=OneWay}"
-                       FontSize="12"
-                       Foreground="DarkSlateGray"
-                       TextWrapping="NoWrap"
-                       TextTrimming="CharacterEllipsis"/>
-            <controls:RatingControl Foreground="DarkSlateGray"
-                                    FontSize="14"
-                                    Value="{x:Bind ViewModel.Rating, Mode=OneWay}"/>
             <TextBlock FontSize="12"
                        Foreground="DarkSlateGray"
                        TextWrapping="NoWrap"
                        TextTrimming="CharacterEllipsis">
-                <Run Text="{x:Bind ViewModel.ReleaseDate.Day, Mode=OneWay}" />
-                <Run Text="{x:Bind ViewModel.ReleaseDate.Month, Mode=OneWay}" />
-                <Run Text="{x:Bind ViewModel.ReleaseDate.Year, Mode=OneWay}" />
+                <Run Text="{x:Bind ViewModel.SeasonNumber, Mode=OneWay}" />
+                <Run Text=" Season"/>
             </TextBlock>
         </StackPanel>
     </Grid>

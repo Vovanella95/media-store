@@ -5,25 +5,25 @@ using Windows.UI.Xaml.Input;
 
 namespace MediaStore.Win10.Controls.Items
 {
-	public sealed partial class DefaultGamesTemplate : UserControl
+	public sealed partial class DefaultSeriesTemplate : UserControl
 	{
 		public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register(
-		"ViewModelProperty", typeof(DefaultGamesModel),
-		typeof(DefaultGamesTemplate), null);
+		"ViewModelProperty", typeof(DefaultSeriesModel),
+		typeof(DefaultSeriesTemplate), null);
 
-		public DefaultGamesModel ViewModel
+		public DefaultSeriesModel ViewModel
 		{
-			get => (DefaultGamesModel)GetValue(ViewModelProperty);
+			get => (DefaultSeriesModel)GetValue(ViewModelProperty);
 			set => SetValue(ViewModelProperty, value);
 		}
 
-		public DefaultGamesTemplate()
+		public DefaultSeriesTemplate()
 		{
 			InitializeComponent();
 
 			DataContextChanged += (s, e) =>
 			{
-				ViewModel = DataContext as DefaultGamesModel;
+				ViewModel = DataContext as DefaultSeriesModel;
 			};
 		}
 
