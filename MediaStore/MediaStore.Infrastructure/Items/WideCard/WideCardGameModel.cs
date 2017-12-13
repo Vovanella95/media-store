@@ -4,6 +4,6 @@
 	{
 		public string GamePosterUrl { get; set; }
 		public string GameTitle { get; set; }
-		public string Genre { get; set; }
+		public string[] Genres { get; set; }
 	}
 }

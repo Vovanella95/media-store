@@ -76,6 +76,8 @@
     <Grid>
         <ListView ItemsSource="{x:Bind ItemsSource, Mode=OneWay}"
                   x:Name="RootListView"
+                  SelectionMode="{x:Bind SelectionMode, Mode=OneWay}"
+                  IsItemClickEnabled="True"
                   Style="{StaticResource ListViewBaseStyle}"
                   ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
                   ItemTemplateSelector="{x:Bind ItemTemplateSelector, Mode=OneWay}"

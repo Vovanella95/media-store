@@ -60,7 +60,7 @@
                        Text="{x:Bind ViewModel.SecondTitle, Mode=OneWay}" />
         </StackPanel>
         <custom:SwimmingLane ItemTemplateSelector="{StaticResource GamesItemTemplateSelector}"
-                             ItemContainerStyle="{StaticResource ListViewItemBaseStyle}"
+                             ItemContainerStyle="{StaticResource ListViewItemDefaultPosterStyle}"
                              Grid.Column="1"
                              VerticalAlignment="Top"
                              Margin="-40,16,0,0"

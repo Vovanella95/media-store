@@ -23,6 +23,7 @@
         <FlipView ItemTemplateSelector="{StaticResource GamesItemTemplateSelector}"
                   VerticalAlignment="Top"
                   Height="400"
+                  Background="Transparent"
                   ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}">
         </FlipView>
     </Grid>

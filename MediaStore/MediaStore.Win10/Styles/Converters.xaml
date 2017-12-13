@@ -2,5 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="using:MediaStore.Win10.Styles"
                     xmlns:converters="using:MediaStore.Win10.Converters">
+    
     <converters:GenresConverter x:Key="GenresConverter"/>
+    <converters:ParallaxValueConverter x:Key="ParallaxValueConverter"/>
 </ResourceDictionary>

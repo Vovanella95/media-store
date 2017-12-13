@@ -6,17 +6,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              d:DesignHeight="300"
-             PointerEntered="OnTopSpotGameTemplatePointerEntered"
-             PointerExited="OnTopSpotGameTemplatePointerExited"
+             MaxWidth="1280"
              d:DesignWidth="400">
 
     <UserControl.Resources>
-        <LinearGradientBrush x:Key="BackgroundGradientBrush"
-                             StartPoint="0.5,0"
-                             EndPoint="0.5,1">
-            <GradientStop Color="#00000000" Offset="0.0" />
-            <GradientStop Color="#FFEAEAEA" Offset="1.0" />
-        </LinearGradientBrush>
         <Storyboard x:Name="PointerEnteredStoryboard">
             <DoubleAnimation To="1.1"
                              Duration="00:00:6" 
@@ -41,49 +34,27 @@
                              Storyboard.TargetProperty="ScaleY">
             </DoubleAnimation>
         </Storyboard>
+
+        <AcrylicBrush x:Key="ButtonBrush"
+                      TintColor="#c6a02d"
+                      TintOpacity="1"
+                      Opacity="0.7"/>
     </UserControl.Resources>
 
     <Grid HorizontalAlignment="Stretch">
-        <Image Source="{x:Bind ViewModel.ImageUrl, Mode=OneWay}"
-               HorizontalAlignment="Stretch"
-               VerticalAlignment="Stretch"
-               Stretch="UniformToFill">
-            <Image.RenderTransform>
-                <CompositeTransform x:Name="ImageTransform" CenterY="150"/>
-            </Image.RenderTransform>
-        </Image>
-        <Grid HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch"
-              Background="{StaticResource BackgroundGradientBrush}"/>
-        <StackPanel Orientation="Horizontal"
+        <StackPanel Orientation="Vertical"
                     MaxWidth="1280"
                     VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
                     Margin="16,0,0,16">
-            <Image Width="146"
-                   Height="200"
-                   Stretch="Fill"
-                   Source="{x:Bind ViewModel.PosterUrl, Mode=OneWay}"/>
-            <StackPanel Margin="16,0,0,0"
-                        MaxWidth="400"
-                        VerticalAlignment="Bottom">
-                <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}"
-                       FontSize="18"/>
-                <RatingControl Value="{x:Bind ViewModel.Raiting}"
-                               HorizontalAlignment="Left"
-                               Background="Red"
-                               FocusVisualPrimaryBrush="Red"
-                               Foreground="Black"
-                               IsReadOnly="True"/>
-                <TextBlock Text="{x:Bind ViewModel.Descriptopn, Mode=OneWay}"
-                           TextWrapping="Wrap"
-                           MaxLines="3"
-                           FontSize="14"
-                           TextAlignment="Justify"
-                           TextTrimming="CharacterEllipsis" />
-                <Button Content="MORE INFO"
-                        HorizontalAlignment="Right"
-                        Margin="0,16,0,0"/>
-            </StackPanel>
+            <Image MaxWidth="600"
+                   MaxHeight="140"
+                   Source="{x:Bind ViewModel.LogoUrl, Mode=OneWay}"/>
+            <Button Content="JOIN THE BROTHERHOOD NOW"
+                    Margin="0,16,0,0"
+                    Background="{StaticResource ButtonBrush}"
+                    Foreground="White"
+                    HorizontalAlignment="Center"/>
         </StackPanel>
 
     </Grid>

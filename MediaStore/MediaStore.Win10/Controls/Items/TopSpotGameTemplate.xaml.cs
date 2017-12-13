@@ -24,17 +24,5 @@ namespace MediaStore.Win10.Controls.Items
 				ViewModel = DataContext as TopSpotGameModel;
 			};
 		}
-
-		private void OnTopSpotGameTemplatePointerEntered(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
-		{
-			ImageTransform.CenterX = ActualWidth / 2;
-			PointerEnteredStoryboard.Begin();
-		}
-
-		private void OnTopSpotGameTemplatePointerExited(object sender, Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
-		{
-			ImageTransform.CenterX = ActualWidth / 2;
-			PointerExitedStoryboard.Begin();
-		}
 	}
 }

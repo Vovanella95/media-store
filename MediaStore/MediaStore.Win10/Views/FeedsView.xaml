@@ -15,6 +15,13 @@
                       Opacity="0.4"/>
     </Page.Background>
     <Page.Resources>
+        <LinearGradientBrush x:Key="BackgroundGradientBrush"
+                             StartPoint="0.5,0"
+                             EndPoint="0.5,1">
+            <GradientStop Color="#00000000" Offset="0.2" />
+            <GradientStop Color="#FFEAEAEA" Offset="1" />
+        </LinearGradientBrush>
+
         <DataTemplate x:Key="WideCardsFeedTemplate">
             <feeds:WideCardsFeedTemplate />
         </DataTemplate>
@@ -45,6 +52,22 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1"
               Background="#EAEAEA">
+            <Grid VerticalAlignment="Top">
+                <Grid HorizontalAlignment="Stretch"
+                      Height="540">
+                    <Image Source="{x:Bind ViewModel.BackgroundImageUrl, Mode=OneWay}"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Stretch"
+                           Height="540"
+                           Stretch="UniformToFill"/>
+                    <Grid HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          Background="{StaticResource BackgroundGradientBrush}"/>
+                    <Grid.RenderTransform>
+                        <TranslateTransform Y="{Binding VerticalOffset, ElementName=RootScrollViewer, Converter={StaticResource ParallaxValueConverter}, Mode=OneWay}"/>
+                    </Grid.RenderTransform>
+                </Grid>
+            </Grid>
             <ScrollViewer x:Name="RootScrollViewer"
                           VerticalScrollBarVisibility="Hidden"
                           VerticalScrollMode="Auto">

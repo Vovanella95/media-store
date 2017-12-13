@@ -1,5 +1,6 @@
 ﻿using MediaStore.Infrastructure.Feeds;
 using MediaStore.Infrastructure.Interfaces;
+using MediaStore.Infrastructure.Items.TopSpot;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -19,8 +20,11 @@ namespace MediaStore.Win10.ViewModels
 			{
 				_feeds = value;
 				NotifyOfPropertyChange(nameof(Feeds));
+				NotifyOfPropertyChange(nameof(BackgroundImageUrl));
 			}
 		}
+
+		public string BackgroundImageUrl => ((Feeds?.FirstOrDefault() as TopSpotFeedModel)?.Items?.FirstOrDefault() as TopSpotModelBase)?.ImageUrl;
 
 		public FeedsViewModel(ILayoutService layoutService)
 		{
@@ -31,7 +35,7 @@ namespace MediaStore.Win10.ViewModels
 		{
 			Feeds = (await _layoutService.FetchLayoutAsync()).Categories.First().Feeds;
 		}
-		
+
 		protected override async void PrepareForActivate()
 		{
 			await LoadFeedsAsync();
@@ -39,7 +43,7 @@ namespace MediaStore.Win10.ViewModels
 
 		protected override void PrepareForDeactivate()
 		{
-			
+
 		}
 	}
 }

@@ -25,6 +25,10 @@ namespace MediaStore.Win10.Controls.Custom
 		"ItemsSource", typeof(object),
 		typeof(SwimmingLane), null);
 
+		public static readonly DependencyProperty SelectionModeProperty = DependencyProperty.Register(
+		"SelectionMode", typeof(ListViewSelectionMode),
+		typeof(SwimmingLane), new PropertyMetadata(ListViewSelectionMode.None));
+
 		public static readonly DependencyProperty ItemTemplateProperty = DependencyProperty.Register(
 		"ItemTemplate", typeof(DataTemplate),
 		typeof(SwimmingLane), null);
@@ -45,6 +49,12 @@ namespace MediaStore.Win10.Controls.Custom
 		{
 			get => (double)GetValue(PosterHeightProperty);
 			set => SetValue(PosterHeightProperty, value);
+		}
+
+		public ListViewSelectionMode SelectionMode
+		{
+			get => (ListViewSelectionMode)GetValue(SelectionModeProperty);
+			set => SetValue(SelectionModeProperty, value);
 		}
 
 		public DataTemplateSelector ItemTemplateSelector

@@ -42,6 +42,7 @@ namespace MediaStore.Services
 											"Adventure",
 											"Stealth"
 										},
+										LogoUrl = "https://orig00.deviantart.net/2578/f/2017/162/6/4/assassin_s_creed_origins__logo__by_kindratblack-dbcewf4.png",
 										PosterUrl = "http://metarankings.ru/wp-content/uploads/Assassins-Creed-Origins-boxart-cover.jpg",
 										Platforms = new GamePlatform[]
 										{
@@ -62,18 +63,55 @@ namespace MediaStore.Services
 										ActorName = "Uladzimir Paliukhovich",
 										ActorEmail = "Vovanella95@mail.ru",
 										BackgroundUrl = "https://www.w3schools.com/w3css/img_fjords.jpg",
-										Content = "Some text for demonstrating this item. So I am Vovanella and I am an Assassin",
+										Title = "Where is time to wait new events in game industry? Report about this issue with Uladzimir",
+										Content = "Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text. Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text. Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text.",
 										Id = "12",
 										ActorImageUrl ="https://pp.userapi.com/c841133/v841133876/3e651/ZLRvkRVO6Og.jpg"
 									},
 									new WideCardGameModel
 									{
 										GameTitle = "Need for Speed: Payback",
-										Genre = "2017, Racing",
+										Genres = new[]
+										{
+											"Racing",
+											"Action",
+											"Adventure"
+										},
 										BackgroundUrl = "https://i.ytimg.com/vi/Y_MB6fVg7H4/maxresdefault.jpg",
-										Content = "Some text for demonstrating this item. So I am Vovanella and I am an Assassin",
+										Title = "Where is time to wait new events in game industry? Report about this issue with Uladzimir",
+										Content = "Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text. Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text. Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text.",
 										Id = "12",
 										GamePosterUrl ="https://media.contentapi.ea.com/content/dam/need-for-speed/images/2017/06/nfsde-pc-generic.jpg"
+									},
+									new WideCardGameModel
+									{
+										GameTitle = "Need for Speed: Payback",
+										Genres = new[]
+										{
+											"Racing",
+											"Action",
+											"Adventure"
+										},
+										BackgroundUrl = "https://compass-ssl.xbox.com/assets/47/d0/47d0f9fa-9092-44a6-81b7-8c545316e475.jpg?n=PS_767_DrawerTech_Engine_img.jpg",
+										Title = "Where is time to wait new events in game industry? Report about this issue with Uladzimir",
+										Content = "Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text. Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text. Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text.",
+										Id = "12",
+										GamePosterUrl ="https://upload.wikimedia.org/wikipedia/en/2/2f/Forza_7_art.jpg"
+									},
+									new WideCardGameModel
+									{
+										GameTitle = "Need for Speed: Payback",
+										Genres = new[]
+										{
+											"Racing",
+											"Action",
+											"Adventure"
+										},
+										BackgroundUrl = "https://media-cdn.tripadvisor.com/media/photo-s/03/9b/2f/f1/nice.jpg",
+										Title = "Where is time to wait new events in game industry? Report about this issue with Uladzimir",
+										Content = "Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text. Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text. Some text for demonstrating this item. So I am Vovanella and I am an Assassin. Assassini vovanella some text some very very long text.",
+										Id = "12",
+										GamePosterUrl ="https://nice.boscolohotels.com/sites/nice.boscolo-hotels.ogilvy.it/files/promo-nice-wellness.jpg"
 									}
 								}
 							},

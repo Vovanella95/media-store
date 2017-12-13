@@ -143,6 +143,7 @@
     <Compile Include="Controls\Selectors\VideoItemTemplateSelector.cs" />
     <Compile Include="Controls\Selectors\WideCardItemTemplateSelector.cs" />
     <Compile Include="Converters\GenresConverter.cs" />
+    <Compile Include="Converters\ParallaxValueConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

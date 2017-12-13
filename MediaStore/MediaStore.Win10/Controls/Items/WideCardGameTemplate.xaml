@@ -28,21 +28,45 @@
         </Grid>
 
         <Image Source="{x:Bind ViewModel.GamePosterUrl, Mode=OneWay}"
-               Width="60"
-               Height="80"
+               Width="50"
+               Height="70"
                Margin="10,-50,0,0"
                HorizontalAlignment="Left"
+               Stretch="UniformToFill"
                VerticalAlignment="Top"
                Grid.Row="1"/>
         <StackPanel Grid.Row="0"
-                    Margin="80,0,0,4"
+                    Margin="70,0,0,4"
                     VerticalAlignment="Bottom">
             <TextBlock Text="{x:Bind ViewModel.GameTitle, Mode=OneWay}"
                        Foreground="White" />
-            <TextBlock Text="{x:Bind ViewModel.Genre, Mode=OneWay}"
-                       Foreground="Gray"
+            <TextBlock Text="{x:Bind ViewModel.Genres, Converter={StaticResource GenresConverter}, Mode=OneWay}"
+                       Foreground="#B6B6B6"
                        FontSize="12"/>
         </StackPanel>
-
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Stretch"
+                    Margin="8,24,8,8">
+            <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}"
+                       TextWrapping="Wrap"
+                       MaxLines="2"
+                       FontSize="14"
+                       TextTrimming="CharacterEllipsis"
+                       Foreground="Black"/>
+            <TextBlock Text="{x:Bind ViewModel.Content, Mode=OneWay}"
+                       FontSize="12"
+                       TextWrapping="Wrap"
+                       MaxLines="5"
+                       TextTrimming="CharacterEllipsis"
+                       Foreground="#2B2B2B"
+                       Margin="0,8,0,0"/>
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Right"
+                   Grid.Row="1"
+                   VerticalAlignment="Bottom"
+                   Margin="8"
+                   FontSize="12"
+                   Foreground="#6B6B6B"
+                   Text="Reed more inside..." />
     </Grid>
 </UserControl>

@@ -6,6 +6,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:wideCards="using:MediaStore.Win10.Controls.Items"
              xmlns:selectors="using:MediaStore.Win10.Controls.Selectors"
+             xmlns:controls="using:MediaStore.Win10.Controls.Custom"
              mc:Ignorable="d"
              d:DesignHeight="300"
              Margin="16,0,16,0"
@@ -31,15 +32,11 @@
         <TextBlock Text="{x:Bind ViewModel.Title}"
                    Margin="0,4,0,4"
                    FontSize="14"/>
-        <ListView ItemTemplateSelector="{StaticResource WideCardTemplateSelector}"
-                  ItemContainerStyle="{StaticResource ListViewItemBaseStyle}"
-                  Grid.Row="1"
-                  ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <ItemsStackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-        </ListView>
+        <controls:SwimmingLane ItemTemplateSelector="{StaticResource WideCardTemplateSelector}"
+                               ItemContainerStyle="{StaticResource ListViewItemBaseStyle}"
+                               PosterHeight="240"
+                               Grid.Row="1"
+                               ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}">
+        </controls:SwimmingLane>
     </Grid>
 </UserControl>

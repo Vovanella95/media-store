@@ -10,6 +10,7 @@
              mc:Ignorable="d"
              d:DesignHeight="300"
              Margin="16,0,16,0"
+             MaxWidth="1280"
              d:DesignWidth="400">
     <UserControl.Resources>
         <DataTemplate x:Key="DefaultGamesTemplate">
