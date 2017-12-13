@@ -7,14 +7,10 @@
       xmlns:selectors="using:MediaStore.Win10.Controls.Selectors"
       xmlns:feeds="using:MediaStore.Win10.Controls.Feeds"
       x:Name="RootElement"
+      Background="{StaticResource SystemControlChromeHighAcrylicWindowMediumBrush }"
       mc:Ignorable="d">
-
-    <Page.Background>
-        <AcrylicBrush TintColor="White"
-                      TintOpacity="1"
-                      Opacity="0.4"/>
-    </Page.Background>
     <Page.Resources>
+        
         <LinearGradientBrush x:Key="BackgroundGradientBrush"
                              StartPoint="0.5,0"
                              EndPoint="0.5,1">
@@ -50,6 +46,12 @@
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Grid>
+            <StackPanel>
+                <TextBox Margin="16"
+                         PlaceholderText="Search anything..."/>
+            </StackPanel>
+        </Grid>
         <Grid Grid.Column="1"
               Background="#EAEAEA">
             <Grid VerticalAlignment="Top">
@@ -62,6 +64,8 @@
                            Stretch="UniformToFill"/>
                     <Grid HorizontalAlignment="Stretch"
                           VerticalAlignment="Stretch"
+                          Margin="0,2,0,0"
+                          Height="540"
                           Background="{StaticResource BackgroundGradientBrush}"/>
                     <Grid.RenderTransform>
                         <TranslateTransform Y="{Binding VerticalOffset, ElementName=RootScrollViewer, Converter={StaticResource ParallaxValueConverter}, Mode=OneWay}"/>
@@ -74,6 +78,18 @@
                 <ItemsControl ItemTemplateSelector="{StaticResource FeedsItemTemplateSelector}"
                               ItemsSource="{x:Bind ViewModel.Feeds, Mode=OneWay}"/>
             </ScrollViewer>
+        </Grid>
+        <Grid Height="34"
+              Grid.Column="1"
+              VerticalAlignment="Top"
+              Opacity="{x:Bind RootScrollViewer.VerticalOffset, Converter={StaticResource OffsetToOpacityConverter}, Mode=OneWay}"
+              HorizontalAlignment="Stretch">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#FF2B2B2B" Offset="0.0" />
+                    <GradientStop Color="#002B2B2B" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
         </Grid>
     </Grid>
 </Page>

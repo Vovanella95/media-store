@@ -17,7 +17,7 @@
             <games:CollectionDefaultGameTemplate />
         </DataTemplate>
         <DataTemplate x:Key="DefaultSeriesTemplate">
-            <games:DefaultSeriesTemplate />
+            <games:CollectionDefaultSeriesTemplate />
         </DataTemplate>
         <selectors:GamesItemTemplateSelector x:Key="GamesItemTemplateSelector"
                                              DefaultGamesTemplate="{StaticResource DefaultGamesTemplate}"
@@ -63,7 +63,7 @@
                              ItemContainerStyle="{StaticResource ListViewItemDefaultPosterStyle}"
                              Grid.Column="1"
                              VerticalAlignment="Top"
-                             Margin="-40,16,0,0"
+                             Margin="-40,16,16,0"
                              PosterHeight="196"
                              ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}"/>
     </Grid>

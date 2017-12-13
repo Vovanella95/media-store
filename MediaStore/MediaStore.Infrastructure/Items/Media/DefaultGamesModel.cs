@@ -2,5 +2,6 @@
 {
 	public class DefaultGamesModel : MediaModelBase
 	{
+		public GamePlatform[] Platforms { get; set; }
 	}
 }

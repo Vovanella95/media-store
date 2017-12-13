@@ -136,7 +136,7 @@ namespace MediaStore.Services
 										Duration = TimeSpan.FromSeconds(216),
 										PublishDate = DateTime.Now.AddSeconds(-18200),
 										Views = 312,
-										ImageUrl = "https://pmcvariety.files.wordpress.com/2017/09/pewdiepie-n-word-response.png?w=1000&h=563&crop=1"
+										ImageUrl = "http://img.burrard-lucas.com/indonesia/full/komodocam_dragon.jpg"
 									},
 									new DefaultVideoModel
 									{
@@ -154,7 +154,7 @@ namespace MediaStore.Services
 										Duration = TimeSpan.FromSeconds(216),
 										PublishDate = DateTime.Now.AddSeconds(-18200),
 										Views = 312,
-										ImageUrl = "https://i.ytimg.com/vi/IThRS-3cfmI/maxresdefault.jpg"
+										ImageUrl = "http://josephmarr.com/wp-content/uploads/2014/06/video_preview-image.jpg"
 									},
 									new DefaultVideoModel
 									{
@@ -304,29 +304,30 @@ namespace MediaStore.Services
 							{
 								Title = "Breaking Bad Collection",
 								SecondTitle = "2001 - 2009",
-								BackgroundImageUrl = "https://images-na.ssl-images-amazon.com/images/I/811a2vMsGzL._AC_UL320_SR224,320_.jpg",
+								BackgroundImageUrl = "http://www.squareeyed.tv/wp-content/uploads/2016/03/breakingbad.jpg",
 								Items = new MediaModelBase[]
 								{
 									new DefaultSeriesModel
 									{
-										Title = "Breaking Bad: Season 1",
-										PosterUrl = "https://i.pinimg.com/736x/0d/11/2e/0d112e94f0d614e9740ec59f29153639--tv-show-breaking-bad-poster.jpg",
+										Title = "Breaking Bad",
+										PosterUrl = "http://images.amcnetworks.com/amc.com/wp-content/uploads/2010/12/breaking-bad-S5-400x600-compressedV1.jpg",
 										ReleaseDate = DateTime.Now,
 										Rating = 5,
+										SeasonNumber = 1,
 										Genres = new[]
 										{
 											"Action",
 											"RPG",
 											"VR"
 										}
-
 									},
 									new DefaultSeriesModel
 									{
-										Title = "Breaking bad: Season 2",
+										Title = "Breaking Bad",
 										PosterUrl = "https://images-na.ssl-images-amazon.com/images/I/A1IQvWDOHwL._AC_UL320_SR222,320_.jpg",
 										ReleaseDate = DateTime.Now,
 										Rating = 4,
+										SeasonNumber = 2,
 										Genres = new[]
 										{
 											"Action",
@@ -336,31 +337,35 @@ namespace MediaStore.Services
 									},
 									new DefaultSeriesModel
 									{
-										Title = "Breaking bad: Season 3",
+										Title = "Breaking Bad",
 										PosterUrl = "https://i.pinimg.com/736x/72/83/92/728392b482329cfef27833fe110321b8--netflix-series-on-netflix.jpg",
 										ReleaseDate = DateTime.Now,
 										Rating = 3,
+										SeasonNumber = 3,
 									},
 									new DefaultSeriesModel
 									{
-										Title = "Breaking bas: Season 4",
+										Title = "Breaking Bad",
 										PosterUrl = "https://vignette.wikia.nocookie.net/breakingbad/images/3/37/Season_3_Poster.jpg/revision/latest?cb=20100330051000",
 										ReleaseDate = DateTime.Now,
 										Rating = 3,
+										SeasonNumber = 4,
 									},
 									new DefaultSeriesModel
 									{
-										Title = "Breaking bad: Season 5",
+										Title = "Breaking Bad",
 										PosterUrl = "http://cdn.collider.com/wp-content/uploads/breaking-bad-season-5-part-2-poster.jpg",
 										ReleaseDate = DateTime.Now,
 										Rating = 3,
+										SeasonNumber = 5,
 									},
 									new DefaultSeriesModel
 									{
-										Title = "Breaking bad: Season 6",
+										Title = "Breaking Bad",
 										PosterUrl = "https://static1.squarespace.com/static/577a9a5d2994caf1d490b6d7/577ac05bcd0f68c0f24cad41/577ac060414fb50acf4a1a47/1467662436222/BB_poster.jpg?format=1000w",
 										ReleaseDate = DateTime.Now,
 										Rating = 3,
+										SeasonNumber = 6,
 									}
 								}
 							},

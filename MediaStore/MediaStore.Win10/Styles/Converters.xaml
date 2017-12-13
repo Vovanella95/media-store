@@ -5,4 +5,6 @@
     
     <converters:GenresConverter x:Key="GenresConverter"/>
     <converters:ParallaxValueConverter x:Key="ParallaxValueConverter"/>
+    <converters:DateTimeConverter x:Key="DateTimeConverter" />
+    <converters:OffsetToOpacityConverter x:Key="OffsetToOpacityConverter" />
 </ResourceDictionary>

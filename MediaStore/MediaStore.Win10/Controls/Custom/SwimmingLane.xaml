@@ -78,6 +78,7 @@
                   x:Name="RootListView"
                   SelectionMode="{x:Bind SelectionMode, Mode=OneWay}"
                   IsItemClickEnabled="True"
+                  Padding="0,0,-16,0"
                   Style="{StaticResource ListViewBaseStyle}"
                   ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"
                   ItemTemplateSelector="{x:Bind ItemTemplateSelector, Mode=OneWay}"
@@ -103,11 +104,18 @@
                   Opacity="0.8"
                   VerticalAlignment="Center"
                   HorizontalAlignment="Left">
+
+                <Ellipse Fill="#B2B2B2"
+                         Width="32"
+                         Height="32"
+                         Margin="6,0,0,0"/>
                 <Ellipse Fill="White"
-                         Width="36"
-                         Height="36"
-                         Margin="2"/>
-                <TextBlock Text="(-"
+                         Width="32"
+                         Height="32"
+                         Margin="4"/>
+                <TextBlock Text="&lt;"
+                           FontSize="28"
+                           Margin="-2,-6,0,0"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
             </Grid>
@@ -117,11 +125,17 @@
                   Tapped="OnRightArrowTapped"
                   VerticalAlignment="Center"
                   HorizontalAlignment="Right">
+                <Ellipse Fill="#B2B2B2"
+                         Width="32"
+                         Height="32"
+                         Margin="0,0,6,0"/>
                 <Ellipse Fill="White"
-                         Width="36"
-                         Height="36"
-                         Margin="2"/>
-                <TextBlock Text="-)"
+                         Width="32"
+                         Height="32"
+                         Margin="4"/>
+                <TextBlock Text="&gt;"
+                           FontSize="28"
+                           Margin="2,-6,0,0"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
             </Grid>
