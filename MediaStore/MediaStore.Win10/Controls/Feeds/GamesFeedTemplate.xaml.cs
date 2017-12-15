@@ -1,9 +1,5 @@
-﻿using MediaStore.Infrastructure.Feeds;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+﻿using MediaStore.Infrastructure.Items.Media;
+using MediaStore.Win10.ViewModels.Feeds;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -12,12 +8,12 @@ namespace MediaStore.Win10.Controls.Feeds
 	public sealed partial class GamesFeedTemplate : UserControl
 	{
 		public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register(
-		"ViewModelProperty", typeof(GamesFeedModel),
+		"ViewModelProperty", typeof(GamesFeedViewModel),
 		typeof(GamesFeedTemplate), null);
 
-		public GamesFeedModel ViewModel
+		public GamesFeedViewModel ViewModel
 		{
-			get => (GamesFeedModel)GetValue(ViewModelProperty);
+			get => (GamesFeedViewModel)GetValue(ViewModelProperty);
 			set => SetValue(ViewModelProperty, value);
 		}
 
@@ -27,8 +23,13 @@ namespace MediaStore.Win10.Controls.Feeds
 
 			DataContextChanged += (s, e) =>
 			{
-				ViewModel = DataContext as GamesFeedModel;
+				ViewModel = DataContext as GamesFeedViewModel;
 			};
+		}
+
+		private void OnSwimmingLaneItemClick(object sender, ItemClickEventArgs e)
+		{
+			ViewModel.NavigateToDetails(e.ClickedItem as MediaModelBase);
 		}
 	}
 }

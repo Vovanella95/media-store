@@ -9,10 +9,12 @@ namespace MediaStore.Win10.ViewModels
 			
 		}
 
+		public object Parameter { get; set; }
+
 		protected abstract void PrepareForActivate();
 		protected abstract void PrepareForDeactivate();
 
-		protected override void OnActivate()
+		protected override void OnViewLoaded(object view)
 		{
 			base.OnActivate();
 			PrepareForActivate();

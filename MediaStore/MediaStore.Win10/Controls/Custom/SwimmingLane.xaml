@@ -78,6 +78,7 @@
                   x:Name="RootListView"
                   SelectionMode="{x:Bind SelectionMode, Mode=OneWay}"
                   IsItemClickEnabled="True"
+                  ItemClick="OnListViewItemClick"
                   Padding="0,0,-16,0"
                   Style="{StaticResource ListViewBaseStyle}"
                   ItemTemplate="{x:Bind ItemTemplate, Mode=OneWay}"

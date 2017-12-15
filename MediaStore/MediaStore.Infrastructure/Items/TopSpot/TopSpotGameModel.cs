@@ -12,5 +12,6 @@ namespace MediaStore.Infrastructure.Items.TopSpot
 		public string Descriptopn { get; set; }
 		public GamePlatform[] Platforms { get; set; }
 		public string LogoUrl { get; set; }
+		public string ActionText { get; set; }
 	}
 }

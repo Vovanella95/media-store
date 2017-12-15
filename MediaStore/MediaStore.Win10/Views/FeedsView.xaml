@@ -10,7 +10,7 @@
       Background="{StaticResource SystemControlChromeHighAcrylicWindowMediumBrush }"
       mc:Ignorable="d">
     <Page.Resources>
-        
+
         <LinearGradientBrush x:Key="BackgroundGradientBrush"
                              StartPoint="0.5,0"
                              EndPoint="0.5,1">
@@ -42,22 +42,11 @@
     </Page.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid>
-            <StackPanel>
-                <TextBox Margin="16"
-                         PlaceholderText="Search anything..."/>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Column="1"
-              Background="#EAEAEA">
+        <Grid Background="#EAEAEA">
             <Grid VerticalAlignment="Top">
                 <Grid HorizontalAlignment="Stretch"
                       Height="540">
-                    <Image Source="{x:Bind ViewModel.BackgroundImageUrl, Mode=OneWay}"
+                    <Image Source="http://digitalspyuk.cdnds.net/17/46/1600x800/landscape-1510842200-fantastic-beasts-first-look-image-1.jpg"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch"
                            Height="540"
@@ -73,7 +62,7 @@
                 </Grid>
             </Grid>
             <ScrollViewer x:Name="RootScrollViewer"
-                          VerticalScrollBarVisibility="Hidden"
+                          VerticalScrollBarVisibility="Auto"
                           VerticalScrollMode="Auto">
                 <ItemsControl ItemTemplateSelector="{StaticResource FeedsItemTemplateSelector}"
                               ItemsSource="{x:Bind ViewModel.Feeds, Mode=OneWay}"/>

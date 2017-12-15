@@ -1,6 +1,6 @@
 ﻿using Windows.UI.Xaml;
-using MediaStore.Infrastructure.Feeds;
 using Windows.UI.Xaml.Controls;
+using MediaStore.Win10.ViewModels.Feeds;
 
 namespace MediaStore.Win10.Controls.Selectors
 {
@@ -14,27 +14,27 @@ namespace MediaStore.Win10.Controls.Selectors
 
 		protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
 		{
-			if (item is WideCardsFeedModel)
-			{
-				return WideCardsFeedTemplate;
-			}
-
-			if (item is GamesFeedModel)
+			if (item is GamesFeedViewModel)
 			{
 				return GamesFeedTemplate;
 			}
 
-			if (item is TopSpotFeedModel)
+			if(item is WideCardFeedViewModel)
+			{
+				return WideCardsFeedTemplate;
+			}
+
+			if(item is TopSpotFeedViewModel)
 			{
 				return TopSpotFeedTemplate;
 			}
 
-			if (item is CollectionFeedModel)
+			if(item is CollectionFeedViewModel)
 			{
 				return CollectionFeedTemplate;
 			}
 
-			if(item is VideoCollectionFeedModel)
+			if(item is VideosFeedViewModel)
 			{
 				return VideoFeedTemplate;
 			}

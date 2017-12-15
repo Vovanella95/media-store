@@ -24,7 +24,7 @@
                   VerticalAlignment="Top"
                   Height="400"
                   Background="Transparent"
-                  ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}">
+                  ItemsSource="{x:Bind ViewModel.Data.Items, Mode=OneWay}">
         </FlipView>
     </Grid>
 </UserControl>

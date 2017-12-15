@@ -1,0 +1,40 @@
+﻿<Page x:Class="MediaStore.Win10.Views.ShellView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:MediaStore.Win10.Views"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:categories="using:MediaStore.Infrastructure.Categories"
+      Background="{StaticResource SystemControlChromeHighAcrylicWindowMediumBrush }"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate x:Key="CategoryItemDataTemplate" x:DataType="categories:LayoutCategoryModel">
+            <TextBlock Text="{x:Bind Name, Mode=OneWay}"/>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <StackPanel>
+                <TextBox Margin="16"
+                         PlaceholderText="Search anything..."/>
+                <ListView ItemsSource="{x:Bind ViewModel.Layout.Categories, Mode=OneWay}"
+                          ItemClick="OnCategoriesListViewItemClick"
+                          IsItemClickEnabled="True"
+                          ItemTemplate="{StaticResource CategoryItemDataTemplate}">
+                </ListView>
+            </StackPanel>
+        </Grid>
+        <Frame Grid.Column="1"
+               x:Name="RootFrame"
+               DataContext="{x:Null}"
+               Loaded="OnShellFrameLoaded"
+               VerticalAlignment="Stretch"
+               HorizontalAlignment="Stretch">
+
+        </Frame>
+    </Grid>
+</Page>

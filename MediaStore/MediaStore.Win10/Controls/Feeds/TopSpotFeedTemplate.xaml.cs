@@ -1,4 +1,4 @@
-﻿using MediaStore.Infrastructure.Feeds;
+﻿using MediaStore.Win10.ViewModels.Feeds;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -7,12 +7,12 @@ namespace MediaStore.Win10.Controls.Feeds
 	public sealed partial class TopSpotFeedTemplate : UserControl
 	{
 		public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register(
-		"ViewModelProperty", typeof(TopSpotFeedModel),
+		"ViewModelProperty", typeof(TopSpotFeedViewModel),
 		typeof(TopSpotFeedTemplate), null);
 
-		public TopSpotFeedModel ViewModel
+		public TopSpotFeedViewModel ViewModel
 		{
-			get => (TopSpotFeedModel)GetValue(ViewModelProperty);
+			get => (TopSpotFeedViewModel)GetValue(ViewModelProperty);
 			set => SetValue(ViewModelProperty, value);
 		}
 
@@ -22,7 +22,7 @@ namespace MediaStore.Win10.Controls.Feeds
 
 			DataContextChanged += (s, e) =>
 			{
-				ViewModel = DataContext as TopSpotFeedModel;
+				ViewModel = DataContext as TopSpotFeedViewModel;
 			};
 		}
 	}

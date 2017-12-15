@@ -45,6 +45,8 @@ namespace MediaStore.Win10.Controls.Custom
 		"PosterHeight", typeof(double),
 		typeof(SwimmingLane), new PropertyMetadata(double.NaN));
 
+		public event EventHandler<ItemClickEventArgs> ItemClick;
+
 		public double PosterHeight
 		{
 			get => (double)GetValue(PosterHeightProperty);
@@ -109,6 +111,11 @@ namespace MediaStore.Win10.Controls.Custom
 		private void OnRootScrollViewerLoaded(object sender, RoutedEventArgs e)
 		{
 			_rootScrollViewer = (ScrollViewer)sender;
+		}
+
+		private void OnListViewItemClick(object sender, ItemClickEventArgs e)
+		{
+			ItemClick?.Invoke(this, e);
 		}
 	}
 }

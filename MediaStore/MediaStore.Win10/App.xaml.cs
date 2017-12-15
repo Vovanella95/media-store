@@ -7,6 +7,7 @@ using MediaStore.Win10.ViewModels;
 using MediaStore.Win10.Views;
 using MediaStore.Infrastructure.Interfaces;
 using MediaStore.Services;
+using MediaStore.Win10.Common;
 
 namespace MediaStore.Win10
 {
@@ -27,8 +28,12 @@ namespace MediaStore.Win10
 			container.RegisterWinRTServices();
 
 			container.Singleton<ILayoutService, LayoutService>();
+			container.Singleton<INavigationManager, NavigationManager>();
+			container.Singleton<GenericFeedsViewModelFactory>();
 
 			container.PerRequest<FeedsViewModel>();
+			container.PerRequest<ShellViewModel>();
+			container.PerRequest<TitleCardViewModel>();
 		}
 
 		protected override void PrepareViewFirst(Frame rootFrame)
@@ -41,7 +46,7 @@ namespace MediaStore.Win10
 			if (args.PreviousExecutionState == ApplicationExecutionState.Running)
 				return;
 
-			DisplayRootView<FeedsView>();
+			DisplayRootView<ShellView>();
 		}
 
 		protected override object GetInstance(Type service, string key)

@@ -1,4 +1,4 @@
-﻿using MediaStore.Infrastructure.Feeds;
+﻿using MediaStore.Win10.ViewModels.Feeds;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -7,12 +7,12 @@ namespace MediaStore.Win10.Controls.Feeds
 	public sealed partial class VideosFeedTemplate : UserControl
 	{
 		public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register(
-		"ViewModelProperty", typeof(VideoCollectionFeedModel),
+		"ViewModelProperty", typeof(VideosFeedViewModel),
 		typeof(VideosFeedTemplate), null);
 
-		public VideoCollectionFeedModel ViewModel
+		public VideosFeedViewModel ViewModel
 		{
-			get => (VideoCollectionFeedModel)GetValue(ViewModelProperty);
+			get => (VideosFeedViewModel)GetValue(ViewModelProperty);
 			set => SetValue(ViewModelProperty, value);
 		}
 
@@ -22,7 +22,7 @@ namespace MediaStore.Win10.Controls.Feeds
 
 			DataContextChanged += (s, e) =>
 			{
-				ViewModel = DataContext as VideoCollectionFeedModel;
+				ViewModel = DataContext as VideosFeedViewModel;
 			};
 		}
 	}

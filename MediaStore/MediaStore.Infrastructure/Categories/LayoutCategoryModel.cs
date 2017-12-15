@@ -11,6 +11,6 @@ namespace MediaStore.Infrastructure.Categories
 
 		public string Icon { get; set; }
 
-		public IEnumerable<LayoutFeedModelBase> Feeds { get; set; }
+		public IEnumerable<LayoutFeedEmptyModel> Feeds { get; set; }
 	}
 }

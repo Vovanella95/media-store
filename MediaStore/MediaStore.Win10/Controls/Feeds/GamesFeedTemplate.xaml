@@ -28,13 +28,14 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}"
+        <TextBlock Text="{x:Bind ViewModel.Data.Title, Mode=OneWay}"
                    Margin="0,4,0,4"
                    FontSize="14"/>
         <custom:SwimmingLane ItemTemplateSelector="{StaticResource GamesItemTemplateSelector}"
                              ItemContainerStyle="{StaticResource ListViewItemDefaultPosterStyle}"
+                             ItemClick="OnSwimmingLaneItemClick"
                              Grid.Row="1"
                              PosterHeight="196"
-                             ItemsSource="{x:Bind ViewModel.Items, Mode=OneWay}"/>
+                             ItemsSource="{x:Bind ViewModel.Data.Items, Mode=OneWay}"/>
     </Grid>
 </UserControl>
