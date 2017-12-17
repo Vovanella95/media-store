@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="MediaStore.Win10.Controls.Feeds.FeedsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:MediaStore.Win10.Controls.Feeds"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:feeds="using:MediaStore.Win10.Controls.Feeds"
+             xmlns:selectors="using:MediaStore.Win10.Controls.Selectors"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="400">
+    <UserControl.Resources>
+        <DataTemplate x:Key="WideCardsFeedTemplate">
+            <feeds:WideCardsFeedTemplate />
+        </DataTemplate>
+        <DataTemplate x:Key="GamesFeedTemplate">
+            <feeds:GamesFeedTemplate />
+        </DataTemplate>
+        <DataTemplate x:Key="TopSpotFeedTemplate">
+            <feeds:TopSpotFeedTemplate />
+        </DataTemplate>
+        <DataTemplate x:Key="CollectionFeedTemplate">
+            <feeds:CollectionFeedTemplate />
+        </DataTemplate>
+        <DataTemplate x:Key="VideoFeedTemplate">
+            <feeds:VideosFeedTemplate />
+        </DataTemplate>
+        <selectors:FeedsItemTemplateSelector x:Key="FeedsItemTemplateSelector"
+                                             VideoFeedTemplate="{StaticResource VideoFeedTemplate}"
+                                             WideCardsFeedTemplate="{StaticResource WideCardsFeedTemplate}"
+                                             TopSpotFeedTemplate="{StaticResource TopSpotFeedTemplate}"
+                                             CollectionFeedTemplate="{StaticResource CollectionFeedTemplate}"
+                                             GamesFeedTemplate="{StaticResource GamesFeedTemplate}"/>
+    </UserControl.Resources>
+
+    <ItemsControl ItemTemplateSelector="{StaticResource FeedsItemTemplateSelector}"
+                      ItemsSource="{x:Bind ViewModel.Feeds, Mode=OneWay}"/>
+</UserControl>

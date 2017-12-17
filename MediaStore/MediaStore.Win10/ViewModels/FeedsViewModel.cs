@@ -1,12 +1,7 @@
 ﻿using MediaStore.Infrastructure.Categories;
-using MediaStore.Infrastructure.Feeds;
 using MediaStore.Infrastructure.Interfaces;
-using MediaStore.Infrastructure.Items.TopSpot;
 using MediaStore.Win10.Common;
 using MediaStore.Win10.ViewModels.Feeds;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace MediaStore.Win10.ViewModels
 {
@@ -15,15 +10,15 @@ namespace MediaStore.Win10.ViewModels
 		private readonly ILayoutService _layoutService;
 		private readonly GenericFeedsViewModelFactory _feedsFactory;
 
-		private ObservableCollection<FeedViewModelBase> _feeds;
+		private FeedsControlViewModel _feedsControlViewModel;
 
-		public ObservableCollection<FeedViewModelBase> Feeds
+		public FeedsControlViewModel FeedsControlViewModel
 		{
-			get => _feeds;
+			get => _feedsControlViewModel;
 			set
 			{
-				_feeds = value;
-				NotifyOfPropertyChange(nameof(Feeds));
+				_feedsControlViewModel = value;
+				NotifyOfPropertyChange(nameof(FeedsControlViewModel));
 			}
 		}
 
@@ -37,7 +32,7 @@ namespace MediaStore.Win10.ViewModels
 			_feedsFactory = feedsFactory;
 		}
 
-		protected override async void PrepareForActivate()
+		protected override void PrepareForActivate()
 		{
 			var feedModels = (Parameter as LayoutCategoryModel).Feeds;
 
@@ -46,14 +41,7 @@ namespace MediaStore.Win10.ViewModels
 				return;
 			}
 
-			Feeds = new ObservableCollection<FeedViewModelBase>();
-
-			foreach (var feedItem in feedModels)
-			{
-				var item = _feedsFactory.GetViewModelFor(feedItem);
-				await item.InitializeAsync();
-				Feeds.Add(item);
-			}
+			FeedsControlViewModel = new FeedsControlViewModel(_feedsFactory, feedModels);
 		}
 
 		protected override void PrepareForDeactivate()

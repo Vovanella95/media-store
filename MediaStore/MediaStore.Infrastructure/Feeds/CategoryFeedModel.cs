@@ -1,6 +1,6 @@
 ﻿namespace MediaStore.Infrastructure.Feeds
 {
-	public class CategoryFeedModel : LayoutFeedModelBase
+	public class CategoryFeedModel : LayoutFeedViewModelBase
 	{
 	}
 }

@@ -19,9 +19,13 @@
         <DataTemplate x:Key="DefaultSeriesTemplate">
             <games:DefaultSeriesTemplate />
         </DataTemplate>
+        <DataTemplate x:Key="DefaultMovieTemplate">
+            <games:DefaultMovieTemplate />
+        </DataTemplate>
         <selectors:GamesItemTemplateSelector x:Key="GamesItemTemplateSelector"
                                              DefaultGamesTemplate="{StaticResource DefaultGamesTemplate}"
-                                             DefaultSeriesTemplate="{StaticResource DefaultSeriesTemplate}"/>
+                                             DefaultSeriesTemplate="{StaticResource DefaultSeriesTemplate}"
+                                             DefaultMovieTemplate="{StaticResource DefaultMovieTemplate}"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>

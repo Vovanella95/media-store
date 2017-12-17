@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MediaStore.Infrastructure.Feeds
 {
-	public class CollectionFeedModel : LayoutFeedModelBase
+	public class CollectionFeedModel : LayoutFeedViewModelBase
 	{
 		public string Title { get; set; }
 		public string SecondTitle { get; set; }

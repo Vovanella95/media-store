@@ -8,6 +8,7 @@ using MediaStore.Win10.Views;
 using MediaStore.Infrastructure.Interfaces;
 using MediaStore.Services;
 using MediaStore.Win10.Common;
+using MediaStore.Win10.ViewModels.TitleCards;
 
 namespace MediaStore.Win10
 {
@@ -34,6 +35,7 @@ namespace MediaStore.Win10
 			container.PerRequest<FeedsViewModel>();
 			container.PerRequest<ShellViewModel>();
 			container.PerRequest<TitleCardViewModel>();
+			container.PerRequest<MediaDetailsViewModel>();
 		}
 
 		protected override void PrepareViewFirst(Frame rootFrame)

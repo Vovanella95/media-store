@@ -1,0 +1,97 @@
+﻿<Page x:Class="MediaStore.Win10.Views.TitleCards.MediaDetailsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:MediaStore.Win10.Views.TitleCards"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"  
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+      xmlns:controls="using:MediaStore.Win10.Controls.Custom"
+      xmlns:feedControls="using:MediaStore.Win10.Controls.Feeds"
+      mc:Ignorable="d">
+    <Page.Resources>
+        <LinearGradientBrush x:Key="BackgroundGradientBrush"
+                             StartPoint="0.5,0"
+                             EndPoint="0.5,1">
+            <GradientStop Color="#00000000" Offset="0" />
+            <GradientStop Color="#AAEAEAEA" Offset="0.5" />
+            <GradientStop Color="#FFEAEAEA" Offset="1" />
+        </LinearGradientBrush>
+    </Page.Resources>
+    <Grid Background="#FFEAEAEA"
+          VerticalAlignment="Top">
+        <Grid>
+            <Image HorizontalAlignment="Stretch"
+                   VerticalAlignment="Top"
+                   Height="600"
+                   Stretch="UniformToFill"
+                   Source="{x:Bind ViewModel.Data.BackgroundUrl, Mode=OneWay}">
+            </Image>
+            <Grid HorizontalAlignment="Stretch"
+                  VerticalAlignment="Top"
+                  Margin="0,2,0,0"
+                  Background="{StaticResource BackgroundGradientBrush}"
+                  Height="600" />
+            <Grid.RenderTransform>
+                <TranslateTransform Y="{Binding VerticalOffset, ElementName=RootScrollViewer, Converter={StaticResource ParallaxValueConverter}, Mode=OneWay}"/>
+            </Grid.RenderTransform>
+        </Grid>
+        <ScrollViewer VerticalScrollMode="Enabled"
+                      x:Name="RootScrollViewer"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalAlignment="Stretch">
+            <Grid Height="2000">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Margin="16,100,16,20"
+                      HorizontalAlignment="Stretch"
+                      MaxWidth="1280">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="16" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{x:Bind ViewModel.Data.PosterUrl, Mode=OneWay}"
+                           MaxWidth="200"
+                           MaxHeight="280"
+                           Stretch="Fill"/>
+                    <StackPanel Grid.Column="2"
+                                HorizontalAlignment="Left"
+                                MaxWidth="600"
+                                Margin="0,40,0,0">
+                        <TextBlock FontSize="24"
+                                   Foreground="Black"
+                                   TextWrapping="Wrap"
+                                   MaxLines="2"
+                                   TextTrimming="CharacterEllipsis"
+                                   Text="{x:Bind ViewModel.Data.Title, Mode=OneWay}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <controls:RatingControl Foreground="#2B2B2B"
+                                                    Value="{x:Bind ViewModel.Data.Rating, Mode=OneWay}"/>
+                            <TextBlock FontSize="14"
+                                       Foreground="#2B2B2B"
+                                       TextWrapping="Wrap"
+                                       Margin="4,0,0,0"
+                                       MaxLines="2"
+                                       TextTrimming="CharacterEllipsis"
+                                       Text="{x:Bind ViewModel.Data.Genres, Converter={StaticResource GenresConverter}, Mode=OneWay}"/>
+                        </StackPanel>
+                        <TextBlock FontSize="14"
+                                   Foreground="#2B2B2B"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Justify"
+                                   MaxLines="5"
+                                   Margin="0,8,0,0"
+                                   TextTrimming="CharacterEllipsis"
+                                   Text="{x:Bind ViewModel.Data.Description, Mode=OneWay}"/>
+                    </StackPanel>
+                </Grid>
+                <feedControls:FeedsControl ViewModel="{x:Bind ViewModel.FeedsControlViewModel, Mode=OneWay}"
+                                           Grid.Row="1"/>
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

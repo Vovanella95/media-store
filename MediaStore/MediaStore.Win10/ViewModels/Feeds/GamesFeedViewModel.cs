@@ -3,6 +3,7 @@ using MediaStore.Infrastructure.Feeds;
 using MediaStore.Infrastructure.Items.Media;
 using MediaStore.Infrastructure.Interfaces;
 using Caliburn.Micro;
+using MediaStore.Win10.ViewModels.TitleCards;
 
 namespace MediaStore.Win10.ViewModels.Feeds
 {
@@ -38,7 +39,7 @@ namespace MediaStore.Win10.ViewModels.Feeds
 
 		public void NavigateToDetails(MediaModelBase mediaItem)
 		{
-			_navigationManager.WindowNavigationService.NavigateToViewModel<TitleCardViewModel>(mediaItem);
+			_navigationManager.ShellNavigationService.NavigateToViewModel<MediaDetailsViewModel>(mediaItem);
 		}
 	}
 }

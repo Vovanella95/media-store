@@ -8,6 +8,7 @@ namespace MediaStore.Win10.Controls.Selectors
 	{
 		public DataTemplate DefaultGamesTemplate { get; set; }
 		public DataTemplate DefaultSeriesTemplate { get; set; }
+		public DataTemplate DefaultMovieTemplate { get; set; }
 
 		protected override DataTemplate SelectTemplateCore(object item, DependencyObject container)
 		{
@@ -19,6 +20,11 @@ namespace MediaStore.Win10.Controls.Selectors
 			if(item is DefaultSeriesModel)
 			{
 				return DefaultSeriesTemplate;
+			}
+
+			if(item is DefaultMovieModel)
+			{
+				return DefaultMovieTemplate;
 			}
 
 			return null;

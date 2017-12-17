@@ -28,7 +28,7 @@ namespace MediaStore.Win10.Common
 
 			if(feedModel.Type == FeedType.COLLECTION_FEED)
 			{
-				return new CollectionFeedViewModel()
+				return new CollectionFeedViewModel(_navigationManager, _layoutService)
 				{
 					Id = feedModel.Id,
 					Type = feedModel.Type
@@ -37,7 +37,7 @@ namespace MediaStore.Win10.Common
 
 			if(feedModel.Type == FeedType.TOP_SPOT_FEED)
 			{
-				return new TopSpotFeedViewModel()
+				return new TopSpotFeedViewModel(_navigationManager, _layoutService)
 				{
 					Id = feedModel.Id,
 					Type = feedModel.Type
@@ -46,7 +46,7 @@ namespace MediaStore.Win10.Common
 
 			if(feedModel.Type == FeedType.VIDEO_COLLECTION_FEED)
 			{
-				return new WideCardFeedViewModel()
+				return new WideCardFeedViewModel(_navigationManager, _layoutService)
 				{
 					Id = feedModel.Id,
 					Type = feedModel.Type
@@ -55,7 +55,7 @@ namespace MediaStore.Win10.Common
 
 			if(feedModel.Type == FeedType.WIDE_CARDS_FEED)
 			{
-				return new WideCardFeedViewModel()
+				return new WideCardFeedViewModel(_navigationManager, _layoutService)
 				{
 					Id = feedModel.Id,
 					Type = feedModel.Type

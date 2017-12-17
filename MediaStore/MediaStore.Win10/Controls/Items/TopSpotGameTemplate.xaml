@@ -50,7 +50,7 @@
             <Image MaxWidth="600"
                    MaxHeight="140"
                    Source="{x:Bind ViewModel.LogoUrl, Mode=OneWay}"/>
-            <Button Content="JOIN THE BROTHERHOOD NOW"
+            <Button Content="{x:Bind ViewModel.ActionText, Mode=OneWay}"
                     Margin="0,16,0,0"
                     Foreground="White"
                     HorizontalAlignment="Center"/>

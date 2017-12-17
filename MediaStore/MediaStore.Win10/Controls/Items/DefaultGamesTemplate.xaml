@@ -70,14 +70,14 @@
                        TextTrimming="CharacterEllipsis"/>
             <TextBlock Text="{x:Bind ViewModel.Genres, Converter={StaticResource GenresConverter}, Mode=OneWay}"
                        FontSize="12"
-                       Foreground="DarkSlateGray"
+                       Foreground="#2B2B2B"
                        TextWrapping="NoWrap"
                        TextTrimming="CharacterEllipsis"/>
-            <controls:RatingControl Foreground="DarkSlateGray"
+            <controls:RatingControl Foreground="#2B2B2B"
                                     FontSize="14"
                                     Value="{x:Bind ViewModel.Rating, Mode=OneWay}"/>
             <TextBlock FontSize="12"
-                       Foreground="DarkSlateGray"
+                       Foreground="#2B2B2B"
                        TextWrapping="NoWrap"
                        TextTrimming="CharacterEllipsis">
                 <Run Text="{x:Bind ViewModel.ReleaseDate.Day, Mode=OneWay}" />

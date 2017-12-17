@@ -4,8 +4,7 @@
       xmlns:local="using:MediaStore.Win10.Views"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:selectors="using:MediaStore.Win10.Controls.Selectors"
-      xmlns:feeds="using:MediaStore.Win10.Controls.Feeds"
+      xmlns:controls="using:MediaStore.Win10.Controls.Feeds"
       x:Name="RootElement"
       Background="{StaticResource SystemControlChromeHighAcrylicWindowMediumBrush }"
       mc:Ignorable="d">
@@ -17,28 +16,6 @@
             <GradientStop Color="#00000000" Offset="0.2" />
             <GradientStop Color="#FFEAEAEA" Offset="1" />
         </LinearGradientBrush>
-
-        <DataTemplate x:Key="WideCardsFeedTemplate">
-            <feeds:WideCardsFeedTemplate />
-        </DataTemplate>
-        <DataTemplate x:Key="GamesFeedTemplate">
-            <feeds:GamesFeedTemplate />
-        </DataTemplate>
-        <DataTemplate x:Key="TopSpotFeedTemplate">
-            <feeds:TopSpotFeedTemplate />
-        </DataTemplate>
-        <DataTemplate x:Key="CollectionFeedTemplate">
-            <feeds:CollectionFeedTemplate />
-        </DataTemplate>
-        <DataTemplate x:Key="VideoFeedTemplate">
-            <feeds:VideosFeedTemplate />
-        </DataTemplate>
-        <selectors:FeedsItemTemplateSelector x:Key="FeedsItemTemplateSelector"
-                                             VideoFeedTemplate="{StaticResource VideoFeedTemplate}"
-                                             WideCardsFeedTemplate="{StaticResource WideCardsFeedTemplate}"
-                                             TopSpotFeedTemplate="{StaticResource TopSpotFeedTemplate}"
-                                             CollectionFeedTemplate="{StaticResource CollectionFeedTemplate}"
-                                             GamesFeedTemplate="{StaticResource GamesFeedTemplate}"/>
     </Page.Resources>
 
     <Grid>
@@ -64,8 +41,7 @@
             <ScrollViewer x:Name="RootScrollViewer"
                           VerticalScrollBarVisibility="Auto"
                           VerticalScrollMode="Auto">
-                <ItemsControl ItemTemplateSelector="{StaticResource FeedsItemTemplateSelector}"
-                              ItemsSource="{x:Bind ViewModel.Feeds, Mode=OneWay}"/>
+                <controls:FeedsControl ViewModel="{x:Bind ViewModel.FeedsControlViewModel, Mode=OneWay}"/>
             </ScrollViewer>
         </Grid>
         <Grid Height="34"

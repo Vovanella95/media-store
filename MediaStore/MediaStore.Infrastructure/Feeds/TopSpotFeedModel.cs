@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MediaStore.Infrastructure.Feeds
 {
-	public class TopSpotFeedModel : LayoutFeedModelBase
+	public class TopSpotFeedModel : LayoutFeedViewModelBase
 	{
 		public IEnumerable<TopSpotModelBase> Items { get; set; }
 	}
