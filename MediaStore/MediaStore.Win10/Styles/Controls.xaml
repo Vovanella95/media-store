@@ -185,7 +185,7 @@
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Content="{TemplateBinding Content}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                              VerticalAlignment="Top"/>
                             <Border x:Name="HoverBorder"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Top"
@@ -280,11 +280,11 @@
                                 <TranslateTransform x:Name="ContentPresenterTranslateTransform"/>
                             </Grid.RenderTransform>
                             <ContentPresenter x:Name="ContentPresenter"
+                                              VerticalAlignment="Top"
                                               ContentTransitions="{TemplateBinding ContentTransitions}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               Content="{TemplateBinding Content}"
-                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                             <Border x:Name="HoverBorder"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Top"

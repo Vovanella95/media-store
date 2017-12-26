@@ -25,10 +25,10 @@ namespace MediaStore.Win10.Views
 
 		private void HideAppBar()
 		{
-			ApplicationViewTitleBar formattableTitleBar = ApplicationView.GetForCurrentView().TitleBar;
+			/*ApplicationViewTitleBar formattableTitleBar = ApplicationView.GetForCurrentView().TitleBar;
 			formattableTitleBar.ButtonBackgroundColor = Colors.Transparent;
 			CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-			coreTitleBar.ExtendViewIntoTitleBar = true;
+			coreTitleBar.ExtendViewIntoTitleBar = true;*/
 		}
 	}
 }

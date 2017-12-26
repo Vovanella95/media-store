@@ -32,6 +32,7 @@
                              ItemContainerStyle="{StaticResource ListViewItemDefaultWidePosterStyle}"
                              Grid.Row="1"
                              PosterHeight="118"
+                             ItemClick="OnSwimmingLaneItemClick"
                              ItemsSource="{x:Bind ViewModel.Data.Items, Mode=OneWay}"/>
     </Grid>
 </UserControl>

@@ -121,6 +121,9 @@
     <Compile Include="Controls\Feeds\WideCardsFeedTemplate.xaml.cs">
       <DependentUpon>WideCardsFeedTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Images\ImageDetailsControl.xaml.cs">
+      <DependentUpon>ImageDetailsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Items\CollectionDefaultGameTemplate.xaml.cs">
       <DependentUpon>CollectionDefaultGameTemplate.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,9 @@
     <Compile Include="Controls\Items\WideCardGameTemplate.xaml.cs">
       <DependentUpon>WideCardGameTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Playback\VideoDetailsControl.xaml.cs">
+      <DependentUpon>VideoDetailsControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Selectors\FeedsItemTemplateSelector.cs" />
     <Compile Include="Controls\Selectors\GamesItemTemplateSelector.cs" />
     <Compile Include="Controls\Selectors\TopSpotTemplateSelector.cs" />
@@ -169,9 +175,13 @@
     <Compile Include="ViewModels\Feeds\TopSpotFeedViewModel.cs" />
     <Compile Include="ViewModels\Feeds\VideosFeedViewModel.cs" />
     <Compile Include="ViewModels\Feeds\WideCardFeedViewModel.cs" />
+    <Compile Include="ViewModels\Messages\ImageDetailsOpenedMessage.cs" />
+    <Compile Include="ViewModels\Messages\VideoDetailsOpenedMessage.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\StartViewModel.cs" />
+    <Compile Include="ViewModels\TitleCards\ImageDetailsViewModel.cs" />
     <Compile Include="ViewModels\TitleCards\MediaDetailsViewModel.cs" />
+    <Compile Include="ViewModels\TitleCards\VideoDetailsViewModel.cs" />
     <Compile Include="ViewModels\TitleCardViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\FeedsView.xaml.cs">
@@ -243,6 +253,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Images\ImageDetailsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Items\CollectionDefaultGameTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -276,6 +290,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Items\WideCardGameTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Playback\VideoDetailsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -316,7 +334,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Caliburn.Micro">
-      <Version>3.1.0</Version>
+      <Version>3.2.0</Version>
     </PackageReference>
     <PackageReference Include="Caliburn.Micro.Core">
       <Version>3.2.0</Version>

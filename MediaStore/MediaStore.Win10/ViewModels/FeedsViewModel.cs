@@ -26,7 +26,8 @@ namespace MediaStore.Win10.ViewModels
 
 		public FeedsViewModel(
 			ILayoutService layoutService,
-			GenericFeedsViewModelFactory feedsFactory)
+			INavigationManager navigationManager,
+			GenericFeedsViewModelFactory feedsFactory) : base(navigationManager)
 		{
 			_layoutService = layoutService;
 			_feedsFactory = feedsFactory;

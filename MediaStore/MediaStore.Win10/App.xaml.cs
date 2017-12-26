@@ -9,6 +9,7 @@ using MediaStore.Infrastructure.Interfaces;
 using MediaStore.Services;
 using MediaStore.Win10.Common;
 using MediaStore.Win10.ViewModels.TitleCards;
+using MediaStore.Infrastructure.Messages;
 
 namespace MediaStore.Win10
 {
@@ -31,11 +32,14 @@ namespace MediaStore.Win10
 			container.Singleton<ILayoutService, LayoutService>();
 			container.Singleton<INavigationManager, NavigationManager>();
 			container.Singleton<GenericFeedsViewModelFactory>();
+			container.Singleton<IMessageRoot, TypeBasedMessageRoot>();
 
 			container.PerRequest<FeedsViewModel>();
 			container.PerRequest<ShellViewModel>();
 			container.PerRequest<TitleCardViewModel>();
 			container.PerRequest<MediaDetailsViewModel>();
+			container.PerRequest<VideoDetailsViewModel>();
+			container.PerRequest<ImageDetailsViewModel>();
 		}
 
 		protected override void PrepareViewFirst(Frame rootFrame)

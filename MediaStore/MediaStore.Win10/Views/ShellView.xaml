@@ -5,6 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:categories="using:MediaStore.Infrastructure.Categories"
+      xmlns:playback="using:MediaStore.Win10.Controls.Playback"
+      xmlns:images="using:MediaStore.Win10.Controls.Images"
       Background="{StaticResource SystemControlChromeHighAcrylicWindowMediumBrush }"
       mc:Ignorable="d">
     <Page.Resources>
@@ -36,5 +38,11 @@
                HorizontalAlignment="Stretch">
 
         </Frame>
+        <Grid Grid.ColumnSpan="2">
+            <playback:VideoDetailsControl DataContext="{x:Bind ViewModel.VideoDetailsViewModel, Mode=OneWay}"
+                                          Visibility="{x:Bind ViewModel.VideoDetailsViewModel.IsAvailable, Mode=OneWay}"/>
+            <images:ImageDetailsControl DataContext="{x:Bind ViewModel.ImageDetailsViewModel, Mode=OneWay}"
+                                        Visibility="{x:Bind ViewModel.ImageDetailsViewModel.IsAvailable, Mode=OneWay}"/>
+        </Grid>
     </Grid>
 </Page>

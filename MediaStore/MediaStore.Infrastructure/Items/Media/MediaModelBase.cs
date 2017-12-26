@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MediaStore.Infrastructure.Items.Media
 {
@@ -11,5 +12,9 @@ namespace MediaStore.Infrastructure.Items.Media
 		public string BackgroundUrl { get; set; }
 		public int Rating { get; set; }
 		public DateTime ReleaseDate { get; set; }
+		public string TrailerImageUrl { get; set; }
+		public IEnumerable<string> Screenshots { get; set; }
+		public string Country { get; set; }
+		public string Director { get; set; }
 	}
 }

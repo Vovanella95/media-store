@@ -1,4 +1,5 @@
-﻿using MediaStore.Win10.ViewModels.Feeds;
+﻿using MediaStore.Infrastructure.Items.Video;
+using MediaStore.Win10.ViewModels.Feeds;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -24,6 +25,11 @@ namespace MediaStore.Win10.Controls.Feeds
 			{
 				ViewModel = DataContext as VideosFeedViewModel;
 			};
+		}
+
+		private void OnSwimmingLaneItemClick(object sender, ItemClickEventArgs e)
+		{
+			ViewModel.NavigateToDetails(e.ClickedItem as VideoModelBase);
 		}
 	}
 }

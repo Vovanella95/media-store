@@ -8,10 +8,12 @@ namespace MediaStore.Win10.Common
 	{
 		private readonly INavigationManager _navigationManager;
 		private readonly ILayoutService _layoutService;
+		private readonly IMessageRoot _messageRoot;
 
-		public GenericFeedsViewModelFactory(INavigationManager navigationManager, ILayoutService layoutService)
+		public GenericFeedsViewModelFactory(INavigationManager navigationManager, ILayoutService layoutService, IMessageRoot messageRoot)
 		{
 			_navigationManager = navigationManager;
+			_messageRoot = messageRoot;
 			_layoutService = layoutService;
 		}
 
@@ -46,7 +48,7 @@ namespace MediaStore.Win10.Common
 
 			if(feedModel.Type == FeedType.VIDEO_COLLECTION_FEED)
 			{
-				return new WideCardFeedViewModel(_navigationManager, _layoutService)
+				return new VideosFeedViewModel(_navigationManager, _messageRoot, _layoutService)
 				{
 					Id = feedModel.Id,
 					Type = feedModel.Type

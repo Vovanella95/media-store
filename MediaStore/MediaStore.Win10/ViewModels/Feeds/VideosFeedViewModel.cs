@@ -1,7 +1,8 @@
 ﻿using Caliburn.Micro;
 using MediaStore.Infrastructure.Feeds;
 using MediaStore.Infrastructure.Interfaces;
-using MediaStore.Infrastructure.Items.Media;
+using MediaStore.Infrastructure.Items.Video;
+using MediaStore.Win10.ViewModels.Messages;
 using MediaStore.Win10.ViewModels.TitleCards;
 using System.Threading.Tasks;
 
@@ -12,6 +13,7 @@ namespace MediaStore.Win10.ViewModels.Feeds
 		private VideoCollectionFeedModel _data;
 		private readonly INavigationManager _navigationManager;
 		private readonly ILayoutService _layoutService;
+		private readonly IMessageRoot _messageRoot;
 
 		public VideoCollectionFeedModel Data
 		{
@@ -25,10 +27,12 @@ namespace MediaStore.Win10.ViewModels.Feeds
 
 		public VideosFeedViewModel(
 			INavigationManager navigationManager,
+			IMessageRoot messageRoot,
 			ILayoutService layoutService)
 		{
 			_navigationManager = navigationManager;
 			_layoutService = layoutService;
+			_messageRoot = messageRoot;
 		}
 
 		public override async Task InitializeAsync()
@@ -36,9 +40,12 @@ namespace MediaStore.Win10.ViewModels.Feeds
 			Data = await _layoutService.FetchFeedAsync<VideoCollectionFeedModel>(Id, Type);
 		}
 
-		public void NavigateToDetails(MediaModelBase mediaItem)
+		public void NavigateToDetails(VideoModelBase mediaItem)
 		{
-			_navigationManager.ShellNavigationService.NavigateToViewModel<MediaDetailsViewModel>(mediaItem);
+			_messageRoot.Raise(new VideoDetailsOpenedMessage
+			{
+				Data = mediaItem
+			});
 		}
 	}
 }

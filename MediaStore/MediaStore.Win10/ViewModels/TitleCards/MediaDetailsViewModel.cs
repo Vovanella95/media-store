@@ -1,6 +1,8 @@
-﻿using MediaStore.Infrastructure.Items.Media;
+﻿using MediaStore.Infrastructure.Interfaces;
+using MediaStore.Infrastructure.Items.Media;
 using MediaStore.Win10.Common;
 using MediaStore.Win10.ViewModels.Feeds;
+using MediaStore.Win10.ViewModels.Messages;
 
 namespace MediaStore.Win10.ViewModels.TitleCards
 {
@@ -10,10 +12,12 @@ namespace MediaStore.Win10.ViewModels.TitleCards
 
 		public MediaModelBase _data;
 		private FeedsControlViewModel _feedsControlViewModel;
+		private readonly IMessageRoot _messageRoot;
 
-		public MediaDetailsViewModel(GenericFeedsViewModelFactory feedsFactory)
+		public MediaDetailsViewModel(GenericFeedsViewModelFactory feedsFactory, INavigationManager navigationManager, IMessageRoot messageRoot) : base(navigationManager)
 		{
 			_feedsFactory = feedsFactory;
+			_messageRoot = messageRoot;
 		}
 
 		public MediaModelBase Data
@@ -46,6 +50,14 @@ namespace MediaStore.Win10.ViewModels.TitleCards
 		protected override void PrepareForDeactivate()
 		{
 			
+		}
+
+		public void OpenScreenshot(string url)
+		{
+			_messageRoot.Raise(new ImageDetailsOpenedMessage
+			{
+				ImageUrl = url
+			});
 		}
 	}
 }

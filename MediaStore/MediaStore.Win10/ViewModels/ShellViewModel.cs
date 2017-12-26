@@ -4,13 +4,16 @@ using Windows.UI.Xaml.Controls;
 using MediaStore.Infrastructure.Layout;
 using System.Linq;
 using MediaStore.Infrastructure.Categories;
+using MediaStore.Win10.ViewModels.TitleCards;
 
 namespace MediaStore.Win10.ViewModels
 {
 	public class ShellViewModel : ViewModelBase
 	{
-		private readonly INavigationManager _navigationManager;
 		private readonly ILayoutService _layoutService;
+
+		public VideoDetailsViewModel VideoDetailsViewModel { get; }
+		public ImageDetailsViewModel ImageDetailsViewModel { get; }
 
 		private FeedsLayoutModel _layout;
 
@@ -24,10 +27,16 @@ namespace MediaStore.Win10.ViewModels
 			}
 		}
 
-		public ShellViewModel(INavigationManager navigationManager, ILayoutService layoutService)
+		public ShellViewModel(
+			INavigationManager navigationManager,
+			ILayoutService layoutService,
+			VideoDetailsViewModel videoDetailsViewModel,
+			ImageDetailsViewModel imageDetailsViewModel
+			) : base(navigationManager)
 		{
-			_navigationManager = navigationManager;
 			_layoutService = layoutService;
+			VideoDetailsViewModel = videoDetailsViewModel;
+			ImageDetailsViewModel = imageDetailsViewModel;
 		}
 
 		protected override async void PrepareForActivate()

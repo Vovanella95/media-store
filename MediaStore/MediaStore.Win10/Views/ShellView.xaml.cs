@@ -1,5 +1,8 @@
 ﻿using MediaStore.Infrastructure.Categories;
 using MediaStore.Win10.ViewModels;
+using Windows.ApplicationModel.Core;
+using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -27,6 +30,11 @@ namespace MediaStore.Win10.Views
 			{
 				ViewModel = DataContext as ShellViewModel;
 			};
+
+			var formattableTitleBar = ApplicationView.GetForCurrentView().TitleBar;
+			formattableTitleBar.ButtonBackgroundColor = Colors.Transparent;
+			var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+			coreTitleBar.ExtendViewIntoTitleBar = true;
 		}
 
 		private void OnShellFrameLoaded(object sender, RoutedEventArgs e)

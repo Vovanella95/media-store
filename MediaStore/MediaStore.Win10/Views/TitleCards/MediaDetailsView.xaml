@@ -8,6 +8,7 @@
       xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
       xmlns:controls="using:MediaStore.Win10.Controls.Custom"
       xmlns:feedControls="using:MediaStore.Win10.Controls.Feeds"
+      xmlns:mediaItems="using:MediaStore.Infrastructure.Items.Media"
       mc:Ignorable="d">
     <Page.Resources>
         <LinearGradientBrush x:Key="BackgroundGradientBrush"
@@ -44,6 +45,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Grid Margin="16,100,16,20"
                       HorizontalAlignment="Stretch"
@@ -60,7 +62,7 @@
                     <StackPanel Grid.Column="2"
                                 HorizontalAlignment="Left"
                                 MaxWidth="600"
-                                Margin="0,40,0,0">
+                                VerticalAlignment="Bottom">
                         <TextBlock FontSize="24"
                                    Foreground="Black"
                                    TextWrapping="Wrap"
@@ -83,13 +85,77 @@
                                    TextWrapping="Wrap"
                                    TextAlignment="Justify"
                                    MaxLines="5"
-                                   Margin="0,8,0,0"
+                                   Margin="0,16,0,0"
                                    TextTrimming="CharacterEllipsis"
                                    Text="{x:Bind ViewModel.Data.Description, Mode=OneWay}"/>
+                        <TextBlock FontSize="14"
+                                   Foreground="#2B2B2B"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Justify"
+                                   MaxLines="5"
+                                   Margin="0,8,0,0"
+                                   TextTrimming="CharacterEllipsis">
+                            <Run Text="Country: " />
+                            <Run Text="{x:Bind ViewModel.Data.Country, Mode=OneWay}" />
+                        </TextBlock>
+                        <TextBlock FontSize="14"
+                                   Foreground="#2B2B2B"
+                                   TextWrapping="Wrap"
+                                   TextAlignment="Justify"
+                                   MaxLines="5"
+                                   TextTrimming="CharacterEllipsis">
+                            <Run Text="Director: " />
+                            <Run Text="{x:Bind ViewModel.Data.Director, Mode=OneWay}" />
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,16,0,0">
+                            <Button>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="☆"/>
+                                    <TextBlock Text=" FAVORITES" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
+                <Grid Margin="16,16,16,16"
+                      MaxWidth="1280"
+                      Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel>
+                        <TextBlock Text="TRAILER"
+                                   Margin="0,0,0,4"/>
+                        <Image Width="300"
+                               Height="180"
+                               Stretch="Fill"
+                               Source="{x:Bind ViewModel.Data.TrailerImageUrl, Mode=OneWay}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1"
+                                Margin="16,0,0,0">
+                        <TextBlock Text="SCREENSHOTS"
+                                   Margin="0,0,0,4"/>
+                        <controls:SwimmingLane ItemsSource="{x:Bind ViewModel.Data.Screenshots, Mode=OneWay}"
+                                               Height="180"
+                                               PosterHeight="180"
+                                               ItemClick="OnScreenshotsItemClick"
+                                               ItemContainerStyle="{StaticResource ListViewItemBaseStyle}">
+                            <controls:SwimmingLane.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Width="300"
+                                           Height="180"
+                                           Stretch="UniformToFill"
+                                           Source="{Binding }" />
+                                </DataTemplate>
+                            </controls:SwimmingLane.ItemTemplate>
+                        </controls:SwimmingLane>
+                    </StackPanel>
+
+                </Grid>
                 <feedControls:FeedsControl ViewModel="{x:Bind ViewModel.FeedsControlViewModel, Mode=OneWay}"
-                                           Grid.Row="1"/>
+                                           Grid.Row="2"/>
             </Grid>
         </ScrollViewer>
 

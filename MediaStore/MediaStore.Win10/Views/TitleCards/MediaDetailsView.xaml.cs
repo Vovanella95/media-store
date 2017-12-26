@@ -16,5 +16,10 @@ namespace MediaStore.Win10.Views.TitleCards
 				ViewModel = DataContext as MediaDetailsViewModel;
 			};
 		}
+
+		private void OnScreenshotsItemClick(object sender, ItemClickEventArgs e)
+		{
+			ViewModel.OpenScreenshot(e.ClickedItem as string);
+		}
 	}
 }

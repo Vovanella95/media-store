@@ -99,7 +99,7 @@ namespace MediaStore.Win10.Controls.Custom
 		{
 			var firstItem = RootListView.ItemsPanelRoot.Children.First() as FrameworkElement;
 			var itemWidth = firstItem.ActualWidth + firstItem.Margin.Left + firstItem.Margin.Right;
-			var itemsToScroll = (int)(ActualWidth / itemWidth / 2);
+			var itemsToScroll = (int)(ActualWidth / itemWidth / 2) + 1;
 			return itemsToScroll * itemWidth;
 		}
 

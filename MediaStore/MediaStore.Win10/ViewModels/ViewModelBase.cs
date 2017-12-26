@@ -1,12 +1,15 @@
 ﻿using Caliburn.Micro;
+using MediaStore.Infrastructure.Interfaces;
 
 namespace MediaStore.Win10.ViewModels
 {
 	public abstract class ViewModelBase : Screen
 	{
-		public ViewModelBase()
+		protected readonly INavigationManager _navigationManager;
+
+		public ViewModelBase(INavigationManager navigationManager)
 		{
-			
+			_navigationManager = navigationManager;
 		}
 
 		public object Parameter { get; set; }

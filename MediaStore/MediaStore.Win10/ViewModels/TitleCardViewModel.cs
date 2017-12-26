@@ -4,11 +4,9 @@ namespace MediaStore.Win10.ViewModels
 {
 	public class TitleCardViewModel : ViewModelBase
 	{
-		private readonly INavigationManager _navigationManager;
-
-		public TitleCardViewModel(INavigationManager navigationManager)
+		public TitleCardViewModel(INavigationManager navigationManager) : base(navigationManager)
 		{
-			_navigationManager = navigationManager;
+			
 		}
 
 		protected override void PrepareForActivate()
