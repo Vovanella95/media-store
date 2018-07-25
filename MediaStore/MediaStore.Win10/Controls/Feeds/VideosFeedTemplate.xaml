@@ -9,7 +9,7 @@
              xmlns:custom="using:MediaStore.Win10.Controls.Custom"
              mc:Ignorable="d"
              d:DesignHeight="300"
-             Margin="16,0,16,0"
+             Margin="16,8,16,8"
              MaxWidth="1280"
              d:DesignWidth="400">
     <UserControl.Resources>
@@ -26,7 +26,8 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Text="{x:Bind ViewModel.Data.Title, Mode=OneWay}"
-                   Margin="0,4,0,4"
+                   Margin="0,0,0,8"
+                   Foreground="White"
                    FontSize="14"/>
         <custom:SwimmingLane ItemTemplateSelector="{StaticResource GamesItemTemplateSelector}"
                              ItemContainerStyle="{StaticResource ListViewItemDefaultWidePosterStyle}"

@@ -1,26 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using WinRTXamlToolkit.AwaitableUI;
 using WinRTXamlToolkit.Controls.Extensions;
-
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace MediaStore.Win10.Controls.Custom
 {
 	public sealed partial class SwimmingLane : UserControl
 	{
+		private bool _isPointerEntered;
+
 		public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register(
 		"ItemsSource", typeof(object),
 		typeof(SwimmingLane), null);
@@ -111,11 +101,47 @@ namespace MediaStore.Win10.Controls.Custom
 		private void OnRootScrollViewerLoaded(object sender, RoutedEventArgs e)
 		{
 			_rootScrollViewer = (ScrollViewer)sender;
+			_rootScrollViewer.ViewChanged += OnScrollViewerViewChanged;
+			UpdateArrowsVisibility();
+		}
+
+		private void OnScrollViewerViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+		{
+			UpdateArrowsVisibility();
+		}
+
+		private void UpdateArrowsVisibility()
+		{
+			if(_isPointerEntered)
+			{
+				var isLeftArrowAvailable = _rootScrollViewer.HorizontalOffset > 0;
+				var isRightArrowAvailable = _rootScrollViewer.HorizontalOffset < _rootScrollViewer.ScrollableWidth;
+
+				LeftArrow.Visibility = isLeftArrowAvailable ? Visibility.Visible : Visibility.Collapsed;
+				RightArrow.Visibility = isRightArrowAvailable ? Visibility.Visible : Visibility.Collapsed;
+			}
+			else
+			{
+				LeftArrow.Visibility = Visibility.Collapsed;
+				RightArrow.Visibility = Visibility.Collapsed;
+			}
 		}
 
 		private void OnListViewItemClick(object sender, ItemClickEventArgs e)
 		{
 			ItemClick?.Invoke(this, e);
+		}
+
+		private void OnPointerEntered(object sender, PointerRoutedEventArgs e)
+		{
+			_isPointerEntered = true;
+			UpdateArrowsVisibility();
+		}
+
+		private void OnPointerExited(object sender, PointerRoutedEventArgs e)
+		{
+			_isPointerEntered = false;
+			UpdateArrowsVisibility();
 		}
 	}
 }

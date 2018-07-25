@@ -35,6 +35,11 @@ namespace MediaStore.Win10.ViewModels.Feeds
 		{
 			Feeds = new ObservableCollection<FeedViewModelBase>();
 
+			if(_feedModels == null)
+			{
+				return;
+			}
+
 			foreach (var feedItem in _feedModels)
 			{
 				var item = _feedsFactory.GetViewModelFor(feedItem);

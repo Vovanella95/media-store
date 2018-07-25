@@ -9,37 +9,45 @@
              xmlns:custom="using:MediaStore.Win10.Controls.Custom"
              mc:Ignorable="d"
              MaxWidth="1280"
-             Margin="16,0,16,0"
+             Margin="16,8,16,8"
              d:DesignHeight="300"
              d:DesignWidth="400">
-    <UserControl.Resources>
-        <DataTemplate x:Key="DefaultGamesTemplate">
-            <games:DefaultGamesTemplate />
-        </DataTemplate>
-        <DataTemplate x:Key="DefaultSeriesTemplate">
-            <games:DefaultSeriesTemplate />
-        </DataTemplate>
-        <DataTemplate x:Key="DefaultMovieTemplate">
-            <games:DefaultMovieTemplate />
-        </DataTemplate>
-        <selectors:GamesItemTemplateSelector x:Key="GamesItemTemplateSelector"
-                                             DefaultGamesTemplate="{StaticResource DefaultGamesTemplate}"
-                                             DefaultSeriesTemplate="{StaticResource DefaultSeriesTemplate}"
-                                             DefaultMovieTemplate="{StaticResource DefaultMovieTemplate}"/>
-    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Text="{x:Bind ViewModel.Data.Title, Mode=OneWay}"
-                   Margin="0,4,0,4"
+                   Margin="0,0,0,8"
+                   Foreground="White"
                    FontSize="14"/>
-        <custom:SwimmingLane ItemTemplateSelector="{StaticResource GamesItemTemplateSelector}"
-                             ItemContainerStyle="{StaticResource ListViewItemDefaultPosterStyle}"
+        <custom:SwimmingLane x:Name="RootSwimmingLane"
                              ItemClick="OnSwimmingLaneItemClick"
                              Grid.Row="1"
-                             PosterHeight="196"
                              ItemsSource="{x:Bind ViewModel.Data.Items, Mode=OneWay}"/>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootSwimmingLane.PosterHeight" Value="138"/>
+                        <Setter Target="RootSwimmingLane.ItemTemplateSelector" Value="{StaticResource GamesItemTemplateNarrowSelector}"/>
+                        <Setter Target="RootSwimmingLane.ItemContainerStyle" Value="{StaticResource ListViewItemDefaultPosterNarrowStyle}"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="DesktopState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1240" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="RootSwimmingLane.PosterHeight" Value="196"/>
+                        <Setter Target="RootSwimmingLane.ItemTemplateSelector" Value="{StaticResource GamesItemTemplateWideSelector}"/>
+                        <Setter Target="RootSwimmingLane.ItemContainerStyle" Value="{StaticResource ListViewItemDefaultPosterWideStyle}"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </UserControl>

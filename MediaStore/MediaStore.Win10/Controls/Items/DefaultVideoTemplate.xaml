@@ -34,10 +34,11 @@
                     HorizontalAlignment="Stretch">
             <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}"
                        TextWrapping="Wrap"
+                       Foreground="White"
                        MaxLines="2"
                        FontSize="14"
                        TextTrimming="CharacterEllipsis"/>
-            <TextBlock Foreground="Gray"
+            <TextBlock Foreground="#8E8E8E"
                        FontSize="12">
                 <Run Text="{x:Bind ViewModel.Source, Mode=OneWay}"/>
                 <Run Text="•"/>

@@ -9,6 +9,7 @@
              mc:Ignorable="d"
              HorizontalAlignment="Stretch"
              d:DesignHeight="300"
+             Margin="0,0,0,8"
              d:DesignWidth="400">
 
     <UserControl.Resources>
@@ -22,6 +23,7 @@
     <Grid>
         <FlipView ItemTemplateSelector="{StaticResource GamesItemTemplateSelector}"
                   VerticalAlignment="Top"
+                  x:Name="RootFlipView"
                   Height="400"
                   Background="Transparent"
                   ItemsSource="{x:Bind ViewModel.Data.Items, Mode=OneWay}">

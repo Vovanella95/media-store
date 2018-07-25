@@ -1,5 +1,6 @@
 ﻿using MediaStore.Win10.ViewModels.TitleCards;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 
 namespace MediaStore.Win10.Views.TitleCards
 {
@@ -20,6 +21,11 @@ namespace MediaStore.Win10.Views.TitleCards
 		private void OnScreenshotsItemClick(object sender, ItemClickEventArgs e)
 		{
 			ViewModel.OpenScreenshot(e.ClickedItem as string);
+		}
+
+		private void OnTrailerControlTapped(object sender, TappedRoutedEventArgs e)
+		{
+			ViewModel.OpenVideo();
 		}
 	}
 }

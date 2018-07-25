@@ -9,7 +9,7 @@
              xmlns:controls="using:MediaStore.Win10.Controls.Custom"
              mc:Ignorable="d"
              d:DesignHeight="300"
-             Margin="16,0,16,0"
+             Margin="16,8,16,8"
              MaxWidth="1280"
              d:DesignWidth="400">
     <UserControl.Resources>
@@ -31,6 +31,7 @@
         </Grid.RowDefinitions>
         <TextBlock Text="{x:Bind ViewModel.Data.Title}"
                    Margin="0,4,0,4"
+                   Foreground="White"
                    FontSize="14"/>
         <controls:SwimmingLane ItemTemplateSelector="{StaticResource WideCardTemplateSelector}"
                                ItemContainerStyle="{StaticResource ListViewItemBaseStyle}"

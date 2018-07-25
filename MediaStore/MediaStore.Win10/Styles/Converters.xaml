@@ -7,4 +7,6 @@
     <converters:ParallaxValueConverter x:Key="ParallaxValueConverter"/>
     <converters:DateTimeConverter x:Key="DateTimeConverter" />
     <converters:OffsetToOpacityConverter x:Key="OffsetToOpacityConverter" />
+    <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+    <converters:OppositeNullToVisibilityConverter x:Key="OppositeNullToVisibilityConverter"/>
 </ResourceDictionary>

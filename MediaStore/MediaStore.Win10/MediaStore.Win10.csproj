@@ -124,17 +124,20 @@
     <Compile Include="Controls\Images\ImageDetailsControl.xaml.cs">
       <DependentUpon>ImageDetailsControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Items\CollectionDefaultGameTemplate.xaml.cs">
-      <DependentUpon>CollectionDefaultGameTemplate.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Items\CollectionDefaultSeriesTemplate.xaml.cs">
-      <DependentUpon>CollectionDefaultSeriesTemplate.xaml</DependentUpon>
+    <Compile Include="Controls\Items\DefaultGamesNarrowTemplate.xaml.cs">
+      <DependentUpon>DefaultGamesNarrowTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Items\DefaultGamesTemplate.xaml.cs">
       <DependentUpon>DefaultGamesTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Items\DefaultMovieNarrowTemplate.xaml.cs">
+      <DependentUpon>DefaultMovieNarrowTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Items\DefaultMovieTemplate.xaml.cs">
       <DependentUpon>DefaultMovieTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Items\DefaultSeriesNarrowTemplate.xaml.cs">
+      <DependentUpon>DefaultSeriesNarrowTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Items\DefaultSeriesTemplate.xaml.cs">
       <DependentUpon>DefaultSeriesTemplate.xaml</DependentUpon>
@@ -144,6 +147,9 @@
     </Compile>
     <Compile Include="Controls\Items\DefaultVideoTemplate.xaml.cs">
       <DependentUpon>DefaultVideoTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Items\TrailerControl.xaml.cs">
+      <DependentUpon>TrailerControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Items\WideCardActorTemplate.xaml.cs">
       <DependentUpon>WideCardActorTemplate.xaml</DependentUpon>
@@ -161,7 +167,9 @@
     <Compile Include="Controls\Selectors\WideCardItemTemplateSelector.cs" />
     <Compile Include="Converters\DateTimeConverter.cs" />
     <Compile Include="Converters\GenresConverter.cs" />
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Converters\OffsetToOpacityConverter.cs" />
+    <Compile Include="Converters\OppositeNullToVisibilityConverter.cs" />
     <Compile Include="Converters\ParallaxValueConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -257,11 +265,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Items\CollectionDefaultGameTemplate.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\Items\CollectionDefaultSeriesTemplate.xaml">
+    <Page Include="Controls\Items\DefaultGamesNarrowTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -269,7 +273,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Items\DefaultMovieNarrowTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Items\DefaultMovieTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Items\DefaultSeriesNarrowTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -282,6 +294,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Items\DefaultVideoTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Items\TrailerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -310,6 +326,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\Templates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FeedsView.xaml">
       <SubType>Designer</SubType>

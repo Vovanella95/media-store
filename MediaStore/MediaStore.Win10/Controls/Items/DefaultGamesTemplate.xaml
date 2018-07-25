@@ -64,20 +64,18 @@
                     HorizontalAlignment="Stretch">
             <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}"
                        FontSize="14"
+                       Foreground="White"
                        TextWrapping="Wrap"
                        HorizontalAlignment="Stretch"
                        MaxLines="2"
                        TextTrimming="CharacterEllipsis"/>
             <TextBlock Text="{x:Bind ViewModel.Genres, Converter={StaticResource GenresConverter}, Mode=OneWay}"
                        FontSize="12"
-                       Foreground="#2B2B2B"
+                       Foreground="#8E8E8E"
                        TextWrapping="NoWrap"
                        TextTrimming="CharacterEllipsis"/>
-            <controls:RatingControl Foreground="#2B2B2B"
-                                    FontSize="14"
-                                    Value="{x:Bind ViewModel.Rating, Mode=OneWay}"/>
             <TextBlock FontSize="12"
-                       Foreground="#2B2B2B"
+                       Foreground="#8E8E8E"
                        TextWrapping="NoWrap"
                        TextTrimming="CharacterEllipsis">
                 <Run Text="{x:Bind ViewModel.ReleaseDate.Day, Mode=OneWay}" />

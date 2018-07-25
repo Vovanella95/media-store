@@ -11,8 +11,8 @@
 
     <Grid Tapped="{x:Bind ClosePlayback, Mode=OneWay}">
         <Grid.Background>
-            <AcrylicBrush TintColor="White"
-                          TintOpacity="0.4"/>
+            <AcrylicBrush TintColor="#161616"
+                          TintOpacity="0.75"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -37,10 +37,11 @@
             <StackPanel Margin="16,0,16,0">
                 <TextBlock Text="{x:Bind ViewModel.Data.Title, Mode=OneWay}"
                            FontSize="18"
+                           Foreground="White"
                            TextWrapping="Wrap"
                            TextTrimming="CharacterEllipsis"
                            MaxLines="2"/>
-                <TextBlock Foreground="#3B3B3B"
+                <TextBlock Foreground="#DFDFDF"
                            Margin="0,4,0,0"
                            FontSize="14">
                 <Run Text="{x:Bind ViewModel.Data.Source, Mode=OneWay}"/>
@@ -79,6 +80,7 @@
                             </Ellipse>
                             <TextBlock Text="{x:Bind Author, Mode=OneWay}"
                                        Grid.Column="1"
+                                       Foreground="White"
                                        Margin="8,0,0,0"
                                        VerticalAlignment="Center"
                                        FontSize="14"/>
@@ -86,6 +88,7 @@
                                        TextWrapping="Wrap"
                                        Margin="0,8,0,0"
                                        Grid.ColumnSpan="2"
+                                       Foreground="#DFDFDF"
                                        FontSize="12"
                                        TextAlignment="Justify"
                                        MaxLines="4"

@@ -65,19 +65,20 @@
                     HorizontalAlignment="Stretch">
             <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}"
                        FontSize="14"
+                       Foreground="White"
                        TextWrapping="Wrap"
                        HorizontalAlignment="Stretch"
                        MaxLines="2"
                        TextTrimming="CharacterEllipsis"/>
             <TextBlock FontSize="12"
-                       Foreground="#2B2B2B"
+                       Foreground="#8E8E8E"
                        TextWrapping="NoWrap"
                        TextTrimming="CharacterEllipsis">
                 <Run Text="Season " />
                 <Run Text="{x:Bind ViewModel.SeasonNumber, Mode=OneWay}" />
             </TextBlock>
             <TextBlock FontSize="12"
-                       Foreground="#2B2B2B"
+                       Foreground="#8E8E8E"
                        TextWrapping="NoWrap"
                        TextTrimming="CharacterEllipsis">
                 <Run Text="{x:Bind ViewModel.ReleaseDate.Year, Mode=OneWay}" />

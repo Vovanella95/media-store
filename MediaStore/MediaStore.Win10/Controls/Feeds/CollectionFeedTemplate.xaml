@@ -8,46 +8,41 @@
              xmlns:selectors="using:MediaStore.Win10.Controls.Selectors"
              xmlns:games="using:MediaStore.Win10.Controls.Items"
              mc:Ignorable="d"
-             Margin="16,0,16,16"
+             Margin="0,0,0,16"
              MaxWidth="1280"
              d:DesignHeight="300"
              d:DesignWidth="400">
     <UserControl.Resources>
-        <DataTemplate x:Key="DefaultGamesTemplate">
-            <games:CollectionDefaultGameTemplate />
-        </DataTemplate>
-        <DataTemplate x:Key="DefaultSeriesTemplate">
-            <games:CollectionDefaultSeriesTemplate />
-        </DataTemplate>
-        <selectors:GamesItemTemplateSelector x:Key="GamesItemTemplateSelector"
-                                             DefaultGamesTemplate="{StaticResource DefaultGamesTemplate}"
-                                             DefaultSeriesTemplate="{StaticResource DefaultSeriesTemplate}"/>
         <LinearGradientBrush x:Key="BackgroundGradientBrush"
                              StartPoint="0,0"
                              EndPoint="1,0">
             <GradientStop Color="#000E0E0E" Offset="0.0" />
-            <GradientStop Color="#FF0E0E0E" Offset="1.0" />
+            <GradientStop Color="#FF161616" Offset="1.0" />
         </LinearGradientBrush>
     </UserControl.Resources>
     <Grid HorizontalAlignment="Stretch"
-          Background="#0E0E0E"
+          Background="#161616"
           Height="300">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="460"/>
+            <ColumnDefinition MaxWidth="460"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Image Source="{x:Bind ViewModel.Data.BackgroundImageUrl, Mode=OneWay}"
+               x:Name="BackgroundImage"
                HorizontalAlignment="Stretch"
                VerticalAlignment="Stretch"
                Stretch="UniformToFill"/>
         <Grid HorizontalAlignment="Stretch"
+              x:Name="GradientGrid"
               VerticalAlignment="Stretch"
               Background="{StaticResource BackgroundGradientBrush}"/>
         <Grid HorizontalAlignment="Stretch"
+              x:Name="DarkGrid"
               VerticalAlignment="Stretch"
-              Background="#0E0E0E"
+              Background="#161616"
               Opacity="0.4"/>
         <StackPanel HorizontalAlignment="Center"
+                    x:Name="TitleStackPanel"
                     VerticalAlignment="Bottom"
                     Margin="8">
             <TextBlock Foreground="White"
@@ -59,12 +54,52 @@
                        HorizontalAlignment="Center"
                        Text="{x:Bind ViewModel.Data.SecondTitle, Mode=OneWay}" />
         </StackPanel>
-        <custom:SwimmingLane ItemTemplateSelector="{StaticResource GamesItemTemplateSelector}"
-                             ItemContainerStyle="{StaticResource ListViewItemDefaultPosterStyle}"
+        <custom:SwimmingLane x:Name="RootSwimmingLane"
+                             ItemClick="OnItemClick"
                              Grid.Column="1"
-                             VerticalAlignment="Top"
-                             Margin="-40,16,16,0"
                              PosterHeight="196"
                              ItemsSource="{x:Bind ViewModel.Data.Items, Mode=OneWay}"/>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="DarkGrid.(Grid.ColumnSpan)" Value="2"/>
+                        <Setter Target="GradientGrid.(Grid.ColumnSpan)" Value="2"/>
+                        <Setter Target="BackgroundImage.(Grid.ColumnSpan)" Value="2"/>
+                        <Setter Target="TitleStackPanel.(Grid.ColumnSpan)" Value="2"/>
+                        <Setter Target="TitleStackPanel.VerticalAlignment" Value="Top"/>
+                        <Setter Target="RootSwimmingLane.PosterHeight" Value="138"/>
+                        <Setter Target="RootSwimmingLane.Margin" Value="16,0,16,0"/>
+                        <Setter Target="RootSwimmingLane.VerticalAlignment" Value="Bottom"/>
+                        <Setter Target="RootSwimmingLane.(Grid.Column)" Value="0"/>
+                        <Setter Target="RootSwimmingLane.(Grid.ColumnSpan)" Value="2"/>
+                        <Setter Target="RootSwimmingLane.ItemTemplateSelector" Value="{StaticResource GamesItemTemplateNarrowSelector}"/>
+                        <Setter Target="RootSwimmingLane.ItemContainerStyle" Value="{StaticResource ListViewItemDefaultPosterNarrowStyle}"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="DesktopState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1240" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="DarkGrid.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="GradientGrid.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="BackgroundImage.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="TitleStackPanel.VerticalAlignment" Value="Bottom"/>
+                        <Setter Target="TitleStackPanel.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="RootSwimmingLane.PosterHeight" Value="196"/>
+                        <Setter Target="RootSwimmingLane.Margin" Value="-40,16,16,0"/>
+                        <Setter Target="RootSwimmingLane.VerticalAlignment" Value="Top"/>
+                        <Setter Target="RootSwimmingLane.(Grid.Column)" Value="1"/>
+                        <Setter Target="RootSwimmingLane.(Grid.ColumnSpan)" Value="1"/>
+                        <Setter Target="RootSwimmingLane.ItemTemplateSelector" Value="{StaticResource GamesItemTemplateWideSelector}"/>
+                        <Setter Target="RootSwimmingLane.ItemContainerStyle" Value="{StaticResource ListViewItemDefaultPosterWideStyle}"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
     </Grid>
 </UserControl>

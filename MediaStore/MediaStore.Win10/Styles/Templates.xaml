@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="using:MediaStore.Win10.Styles"
+                    xmlns:games="using:MediaStore.Win10.Controls.Items"
+                    xmlns:selectors="using:MediaStore.Win10.Controls.Selectors">
+    
+    <DataTemplate x:Key="DefaultGamesTemplate">
+        <games:DefaultGamesTemplate />
+    </DataTemplate>
+    <DataTemplate x:Key="DefaultSeriesTemplate">
+        <games:DefaultSeriesTemplate />
+    </DataTemplate>
+    <DataTemplate x:Key="DefaultMoviesTemplate">
+        <games:DefaultMovieTemplate />
+    </DataTemplate>
+    <DataTemplate x:Key="DefaultGamesNarrowTemplate">
+        <games:DefaultGamesNarrowTemplate />
+    </DataTemplate>
+    <DataTemplate x:Key="DefaultMoviesNarrowTemplate">
+        <games:DefaultMovieNarrowTemplate />
+    </DataTemplate>
+    <DataTemplate x:Key="DefaultSeriesNarrowTemplate">
+        <games:DefaultSeriesNarrowTemplate />
+    </DataTemplate>
+    <selectors:GamesItemTemplateSelector x:Key="GamesItemTemplateWideSelector"
+                                             DefaultGamesTemplate="{StaticResource DefaultGamesTemplate}"
+                                             DefaultMovieTemplate="{StaticResource DefaultMoviesTemplate}"
+                                             DefaultSeriesTemplate="{StaticResource DefaultSeriesTemplate}"/>
+    <selectors:GamesItemTemplateSelector x:Key="GamesItemTemplateNarrowSelector"
+                                             DefaultGamesTemplate="{StaticResource DefaultGamesNarrowTemplate}"
+                                             DefaultMovieTemplate="{StaticResource DefaultMoviesNarrowTemplate}"
+                                             DefaultSeriesTemplate="{StaticResource DefaultSeriesNarrowTemplate}"/>
+</ResourceDictionary>

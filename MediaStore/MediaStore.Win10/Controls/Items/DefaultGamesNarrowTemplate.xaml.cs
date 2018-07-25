@@ -5,11 +5,11 @@ using Windows.UI.Xaml.Input;
 
 namespace MediaStore.Win10.Controls.Items
 {
-	public sealed partial class CollectionDefaultGameTemplate : UserControl
+	public sealed partial class DefaultGamesNarrowTemplate : UserControl
 	{
 		public static readonly DependencyProperty ViewModelProperty = DependencyProperty.Register(
 		"ViewModelProperty", typeof(DefaultGamesModel),
-		typeof(DefaultGamesTemplate), null);
+		typeof(DefaultGamesNarrowTemplate), null);
 
 		public DefaultGamesModel ViewModel
 		{
@@ -17,7 +17,7 @@ namespace MediaStore.Win10.Controls.Items
 			set => SetValue(ViewModelProperty, value);
 		}
 
-		public CollectionDefaultGameTemplate()
+		public DefaultGamesNarrowTemplate()
 		{
 			InitializeComponent();
 

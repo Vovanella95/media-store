@@ -1,5 +1,6 @@
 ﻿using MediaStore.Infrastructure.Interfaces;
 using MediaStore.Infrastructure.Items.Media;
+using MediaStore.Infrastructure.Items.Video;
 using MediaStore.Win10.Common;
 using MediaStore.Win10.ViewModels.Feeds;
 using MediaStore.Win10.ViewModels.Messages;
@@ -57,6 +58,14 @@ namespace MediaStore.Win10.ViewModels.TitleCards
 			_messageRoot.Raise(new ImageDetailsOpenedMessage
 			{
 				ImageUrl = url
+			});
+		}
+
+		public void OpenVideo()
+		{
+			_messageRoot.Raise(new VideoDetailsOpenedMessage
+			{
+				Data = Data.Trailer
 			});
 		}
 	}

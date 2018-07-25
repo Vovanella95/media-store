@@ -6,24 +6,23 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:controls="using:MediaStore.Win10.Controls.Feeds"
       x:Name="RootElement"
-      Background="{StaticResource SystemControlChromeHighAcrylicWindowMediumBrush }"
       mc:Ignorable="d">
     <Page.Resources>
 
         <LinearGradientBrush x:Key="BackgroundGradientBrush"
                              StartPoint="0.5,0"
                              EndPoint="0.5,1">
-            <GradientStop Color="#00000000" Offset="0.2" />
-            <GradientStop Color="#FFEAEAEA" Offset="1" />
+            <GradientStop Color="#00161616" Offset="0.2" />
+            <GradientStop Color="#FF161616" Offset="1" />
         </LinearGradientBrush>
     </Page.Resources>
 
     <Grid>
-        <Grid Background="#EAEAEA">
+        <Grid Background="#161616">
             <Grid VerticalAlignment="Top">
                 <Grid HorizontalAlignment="Stretch"
                       Height="540">
-                    <Image Source="https://pp.userapi.com/c834303/v834303554/5dc01/NpQt7S0tnxg.jpg"
+                    <Image Source="https://upload.wikimedia.org/wikipedia/ru/thumb/2/2f/Shadow_of_the_Tomb_Raider_art.jpg/1200px-Shadow_of_the_Tomb_Raider_art.jpg"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch"
                            Height="540"

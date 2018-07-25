@@ -5,14 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             d:DesignHeight="300"
              MaxWidth="1280"
-             d:DesignWidth="400">
+             Margin="16,0,16,0">
 
     <UserControl.Resources>
         <Storyboard x:Name="PointerEnteredStoryboard">
             <DoubleAnimation To="1.1"
-                             Duration="00:00:6" 
+                             Duration="00:00:6"
                              Storyboard.TargetName="ImageTransform" 
                              Storyboard.TargetProperty="ScaleX">
             </DoubleAnimation>
@@ -42,19 +41,47 @@
     </UserControl.Resources>
 
     <Grid HorizontalAlignment="Stretch">
-        <StackPanel Orientation="Vertical"
-                    MaxWidth="1280"
-                    VerticalAlignment="Bottom"
-                    HorizontalAlignment="Left"
-                    Margin="16,0,0,16">
-            <Image MaxWidth="600"
-                   MaxHeight="140"
-                   Source="{x:Bind ViewModel.LogoUrl, Mode=OneWay}"/>
-            <Button Content="{x:Bind ViewModel.ActionText, Mode=OneWay}"
-                    Margin="0,16,0,0"
-                    Foreground="White"
-                    HorizontalAlignment="Center"/>
-        </StackPanel>
+        <Grid MaxWidth="600"
+              VerticalAlignment="Bottom"
+              HorizontalAlignment="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Width="136"
+                   Height="194"
+                   Source="{x:Bind ViewModel.PosterUrl, Mode=OneWay}"/>
+            <StackPanel Grid.Column="1"
+                        VerticalAlignment="Bottom"
+                        Margin="16,0,16,0">
+                <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}"
+                           Foreground="White"
+                           FontSize="24"/>
+                <StackPanel Orientation="Horizontal"
+                            Margin="0,8,0,0">
+                    <Image MaxWidth="120"
+                           Margin="0,0,8,0"
+                           MaxHeight="24"
+                           Source="{x:Bind ViewModel.LogoUrl, Mode=OneWay}"/>
+                    <TextBlock Text="Coming September 24, 2018"
+                               FontSize="14"
+                               Foreground="#AFAFAF"/>
+                </StackPanel>
+                <TextBlock Text="{x:Bind ViewModel.Descriptopn, Mode=OneWay}"
+                           Foreground="#AFAFAF"
+                           FontSize="14"
+                           TextTrimming="CharacterEllipsis"
+                           Margin="0,8,0,0"
+                           TextWrapping="Wrap"
+                           MaxLines="2"/>
+                <Button Content="{x:Bind ViewModel.ActionText, Mode=OneWay}"
+                        Margin="0,8,0,0"
+                        Foreground="White"
+                        Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}"
+                        HorizontalAlignment="Left"/>
+            </StackPanel>
+            
+        </Grid>
 
     </Grid>
 </UserControl>

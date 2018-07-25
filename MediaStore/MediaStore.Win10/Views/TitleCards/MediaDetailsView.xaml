@@ -9,17 +9,18 @@
       xmlns:controls="using:MediaStore.Win10.Controls.Custom"
       xmlns:feedControls="using:MediaStore.Win10.Controls.Feeds"
       xmlns:mediaItems="using:MediaStore.Infrastructure.Items.Media"
+      xmlns:items="using:MediaStore.Win10.Controls.Items"
       mc:Ignorable="d">
     <Page.Resources>
         <LinearGradientBrush x:Key="BackgroundGradientBrush"
                              StartPoint="0.5,0"
                              EndPoint="0.5,1">
             <GradientStop Color="#00000000" Offset="0" />
-            <GradientStop Color="#AAEAEAEA" Offset="0.5" />
-            <GradientStop Color="#FFEAEAEA" Offset="1" />
+            <GradientStop Color="#CC161616" Offset="0.4" />
+            <GradientStop Color="#FF161616" Offset="1" />
         </LinearGradientBrush>
     </Page.Resources>
-    <Grid Background="#FFEAEAEA"
+    <Grid Background="#FF161616"
           VerticalAlignment="Top">
         <Grid>
             <Image HorizontalAlignment="Stretch"
@@ -64,16 +65,16 @@
                                 MaxWidth="600"
                                 VerticalAlignment="Bottom">
                         <TextBlock FontSize="24"
-                                   Foreground="Black"
+                                   Foreground="White"
                                    TextWrapping="Wrap"
                                    MaxLines="2"
                                    TextTrimming="CharacterEllipsis"
                                    Text="{x:Bind ViewModel.Data.Title, Mode=OneWay}"/>
                         <StackPanel Orientation="Horizontal">
-                            <controls:RatingControl Foreground="#2B2B2B"
+                            <controls:RatingControl Foreground="#DFDFDF"
                                                     Value="{x:Bind ViewModel.Data.Rating, Mode=OneWay}"/>
                             <TextBlock FontSize="14"
-                                       Foreground="#2B2B2B"
+                                       Foreground="#DFDFDF"
                                        TextWrapping="Wrap"
                                        Margin="4,0,0,0"
                                        MaxLines="2"
@@ -81,7 +82,7 @@
                                        Text="{x:Bind ViewModel.Data.Genres, Converter={StaticResource GenresConverter}, Mode=OneWay}"/>
                         </StackPanel>
                         <TextBlock FontSize="14"
-                                   Foreground="#2B2B2B"
+                                   Foreground="#DFDFDF"
                                    TextWrapping="Wrap"
                                    TextAlignment="Justify"
                                    MaxLines="5"
@@ -89,7 +90,7 @@
                                    TextTrimming="CharacterEllipsis"
                                    Text="{x:Bind ViewModel.Data.Description, Mode=OneWay}"/>
                         <TextBlock FontSize="14"
-                                   Foreground="#2B2B2B"
+                                   Foreground="#DFDFDF"
                                    TextWrapping="Wrap"
                                    TextAlignment="Justify"
                                    MaxLines="5"
@@ -99,7 +100,7 @@
                             <Run Text="{x:Bind ViewModel.Data.Country, Mode=OneWay}" />
                         </TextBlock>
                         <TextBlock FontSize="14"
-                                   Foreground="#2B2B2B"
+                                   Foreground="#DFDFDF"
                                    TextWrapping="Wrap"
                                    TextAlignment="Justify"
                                    MaxLines="5"
@@ -109,10 +110,19 @@
                         </TextBlock>
                         <StackPanel Orientation="Horizontal"
                                     Margin="0,16,0,0">
-                            <Button>
+                            <Button Foreground="White"
+                                    Margin="0,0,8,0"
+                                    Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}">
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="☆"/>
                                     <TextBlock Text=" FAVORITES" />
+                                </StackPanel>
+                            </Button>
+                            <Button Foreground="White"
+                                    Background="{ThemeResource SystemControlAccentAcrylicElementAccentMediumHighBrush}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="☆"/>
+                                    <TextBlock Text=" BUY THIS ITEM" />
                                 </StackPanel>
                             </Button>
                         </StackPanel>
@@ -125,17 +135,19 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <StackPanel>
-                        <TextBlock Text="TRAILER"
+                    <StackPanel Visibility="{x:Bind ViewModel.Data.Trailer, Converter={StaticResource OppositeNullToVisibilityConverter}, Mode=OneWay}"
+                                Margin="0,0,16,0">
+                        <TextBlock Text="Trailer"
+                                   Foreground="White"
                                    Margin="0,0,0,4"/>
-                        <Image Width="300"
-                               Height="180"
-                               Stretch="Fill"
-                               Source="{x:Bind ViewModel.Data.TrailerImageUrl, Mode=OneWay}"/>
+                        <items:TrailerControl Width="300"
+                                              Height="180"
+                                              ViewModel="{x:Bind ViewModel.Data.Trailer, Mode=OneWay}"
+                                              Tapped="OnTrailerControlTapped"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="1"
-                                Margin="16,0,0,0">
-                        <TextBlock Text="SCREENSHOTS"
+                    <StackPanel Grid.Column="1">
+                        <TextBlock Text="Screenshots"
+                                   Foreground="White"
                                    Margin="0,0,0,4"/>
                         <controls:SwimmingLane ItemsSource="{x:Bind ViewModel.Data.Screenshots, Mode=OneWay}"
                                                Height="180"
